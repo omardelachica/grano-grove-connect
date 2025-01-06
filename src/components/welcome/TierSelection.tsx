@@ -22,9 +22,9 @@ export const TierSelection = ({ selectedTier, onTierSelect, tierInfo }: Props) =
           <button
             type="button"
             onClick={() => onTierSelect(tier)}
-            className="w-full p-4 flex items-center justify-between"
+            className="w-full p-4"
           >
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col items-center gap-2">
               <h3 className="font-playfair text-lg text-espresso">{info.title}</h3>
               <div className="flex gap-1">
                 {[...Array(info.beans)].map((_, i) => (
@@ -32,7 +32,7 @@ export const TierSelection = ({ selectedTier, onTierSelect, tierInfo }: Props) =
                 ))}
               </div>
             </div>
-            <p className="text-sm text-slate">{info.description}</p>
+            <p className="text-sm text-slate mt-2">{info.description}</p>
           </button>
         </div>
       ))}
