@@ -2,27 +2,45 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
 import { Coffee } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
+import { ConsumerTierSelection } from "./ConsumerTierSelection";
+import { ConsumerTierDetailsPanel } from "./ConsumerTierDetailsPanel";
+import { ConsumerFormData, ConsumptionTier } from "./types";
 
-type FormData = {
-  name: string;
-  phone: string;
-  email: string;
-  address: string;
-  coffeeCupsPerWeek: number;
+export const CONSUMER_TIER_INFO = {
+  casual: {
+    title: "Casual Sipper",
+    description: "Perfect for occasional coffee enthusiasts",
+    details: "You enjoy coffee occasionally—socially or as a treat. Coffee isn't part of your daily routine just yet. Consumption: Fewer than 7 cups per week (less than 1 cup a day).",
+    cups: 1,
+    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&h=600",
+  },
+  daily: {
+    title: "Daily Drinker",
+    description: "For the everyday coffee lover",
+    details: "Coffee fuels your day. You're a steady drinker, enjoying 1 to 3 cups to keep your energy flowing. Consumption: Between 7 and 21 cups per week (1–3 cups per day).",
+    cups: 2,
+    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&h=600",
+  },
+  connoisseur: {
+    title: "Caffeine Connoisseur",
+    description: "For the true coffee aficionado",
+    details: "Coffee is life! With more than 3 cups a day, you savor the buzz and love every sip. Consumption: Over 21 cups per week (more than 3 cups per day).",
+    cups: 3,
+    image: "https://images.unsplash.com/photo-1511537190424-bbbab1bb7c9d?auto=format&fit=crop&w=800&h=600",
+  },
 };
 
 export const ConsumerForm = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<ConsumerFormData>({
     name: "",
     phone: "",
     email: "",
     address: "",
-    coffeeCupsPerWeek: 7,
+    consumptionTier: null,
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -35,7 +53,7 @@ export const ConsumerForm = () => {
         phone: formData.phone,
         email: formData.email,
         address: formData.address,
-        coffee_cups_per_week: formData.coffeeCupsPerWeek,
+        consumption_tier: formData.consumptionTier,
       });
 
       if (error) throw error;
@@ -57,9 +75,21 @@ export const ConsumerForm = () => {
     <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-6">
       <div className="text-center mb-8">
         <Coffee className="w-12 h-12 text-espresso mb-4 mx-auto" />
-        <h2 className="font-playfair text-3xl text-espresso mb-2">
+        <h2 className="font-playfair text-3xl text-espresso mb-2 font-bold">
           I'm interested in buying specialty coffee from Roasters/Producers using Grano
         </h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <ConsumerTierSelection
+          selectedTier={formData.consumptionTier}
+          setSelectedTier={(tier) => setFormData({ ...formData, consumptionTier: tier })}
+          tierInfo={CONSUMER_TIER_INFO}
+        />
+        <ConsumerTierDetailsPanel
+          selectedTier={formData.consumptionTier}
+          tierInfo={CONSUMER_TIER_INFO}
+        />
       </div>
 
       <div>
@@ -100,24 +130,6 @@ export const ConsumerForm = () => {
           value={formData.address}
           onChange={(e) => setFormData({ ...formData, address: e.target.value })}
         />
-      </div>
-
-      <div>
-        <Label>Weekly Coffee Consumption</Label>
-        <div className="flex items-center gap-4">
-          <Switch
-            checked={formData.coffeeCupsPerWeek >= 14}
-            onCheckedChange={(checked) =>
-              setFormData({
-                ...formData,
-                coffeeCupsPerWeek: checked ? 14 : 7,
-              })
-            }
-          />
-          <span className="text-sm text-slate">
-            {formData.coffeeCupsPerWeek >= 14 ? "14+ cups/week" : "< 14 cups/week"}
-          </span>
-        </div>
       </div>
 
       <Button type="submit" className="w-full">Join Grano</Button>
