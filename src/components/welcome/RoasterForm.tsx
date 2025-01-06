@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Store } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
-import { Slider } from "@/components/ui/slider";
-import { Progress } from "@/components/ui/progress";
+
+type ProductionTier = 'craft' | 'scaling' | 'global';
 
 type FormData = {
   name: string;
@@ -14,7 +14,25 @@ type FormData = {
   phone: string;
   email: string;
   address: string;
-  productionVolume: number;
+  productionTier: ProductionTier | null;
+};
+
+const TIER_INFO = {
+  craft: {
+    title: "Craft Coffee Creator",
+    description: "Up to 300 kg per week, typically roasting in 5–30 kg batches.",
+    details: "Passionate about precision, small batches, and unique, high-quality coffee. You love experimenting with roast profiles and building personal connections."
+  },
+  scaling: {
+    title: "Scaling Specialist",
+    description: "Roasting 300 kg to several tons per week, with a mix of custom and standardized processes.",
+    details: "Growing your reach while balancing quality and efficiency. You supply mid-sized cafés, regional markets, or specialty chains with reliable, consistent coffee."
+  },
+  global: {
+    title: "Global Coffee Engine",
+    description: "Roasting several tons per week or more, often using machines for 60+ kg batches.",
+    details: "A large-scale operator supplying national or international markets. Your focus is on mass production, consistency, and efficiency."
+  }
 };
 
 export const RoasterForm = () => {
@@ -25,12 +43,21 @@ export const RoasterForm = () => {
     phone: "",
     email: "",
     address: "",
-    productionVolume: 100,
+    productionTier: null,
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    if (!formData.productionTier) {
+      toast({
+        title: "Production Tier Required",
+        description: "Please select your production tier before submitting.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     try {
       const { error } = await supabase.from('leads').insert({
         type: 'roaster',
@@ -39,7 +66,7 @@ export const RoasterForm = () => {
         phone: formData.phone,
         email: formData.email,
         address: formData.address,
-        production_volume: formData.productionVolume,
+        production_tier: formData.productionTier,
       });
 
       if (error) throw error;
@@ -116,22 +143,24 @@ export const RoasterForm = () => {
       </div>
 
       <div className="space-y-4">
-        <Label>Annual Production Volume (kg/year)</Label>
-        <Slider
-          value={[formData.productionVolume]}
-          onValueChange={(value) => setFormData({ ...formData, productionVolume: value[0] })}
-          max={10000}
-          step={100}
-          className="py-4"
-        />
-        <div className="flex justify-between text-xs text-slate mb-2">
-          <span>0 kg/year</span>
-          <span>5,000 kg/year</span>
-          <span>>10,000 kg/year</span>
-        </div>
-        <Progress value={(formData.productionVolume / 10000) * 100} className="h-2" />
-        <div className="text-sm text-slate text-right">
-          Selected: {formData.productionVolume >= 10000 ? ">10,000" : formData.productionVolume} kg/year
+        <Label>Select Your Production Tier</Label>
+        <div className="grid gap-4">
+          {(Object.entries(TIER_INFO) as [ProductionTier, typeof TIER_INFO.craft][]).map(([tier, info]) => (
+            <button
+              key={tier}
+              type="button"
+              onClick={() => setFormData({ ...formData, productionTier: tier })}
+              className={`p-4 rounded-lg border-2 text-left transition-all ${
+                formData.productionTier === tier
+                  ? 'border-espresso bg-cream'
+                  : 'border-espresso/20 hover:border-espresso/40'
+              }`}
+            >
+              <h3 className="font-playfair text-lg text-espresso mb-1">{info.title}</h3>
+              <p className="text-sm text-slate mb-2">{info.description}</p>
+              <p className="text-xs text-slate/80">{info.details}</p>
+            </button>
+          ))}
         </div>
       </div>
 
