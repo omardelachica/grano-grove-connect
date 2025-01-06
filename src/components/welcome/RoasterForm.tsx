@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Store, Bean } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
+import { TierDetailsPanel } from "./TierDetailsPanel";
 
 type ProductionTier = 'craft' | 'scaling' | 'global';
 
@@ -22,19 +23,22 @@ const TIER_INFO = {
     title: "Craft Coffee Creator",
     description: "Up to 300 kg per week, typically roasting in 5–30 kg batches.",
     details: "Passionate about precision, small batches, and unique, high-quality coffee. You love experimenting with roast profiles and building personal connections.",
-    beans: 1
+    beans: 1,
+    image: "/images/craft-roaster.jpg"
   },
   scaling: {
     title: "Scaling Specialist",
     description: "Roasting 300 kg to several tons per week, with a mix of custom and standardized processes.",
     details: "Growing your reach while balancing quality and efficiency. You supply mid-sized cafés, regional markets, or specialty chains with reliable, consistent coffee.",
-    beans: 2
+    beans: 2,
+    image: "/images/scaling-roaster.jpg"
   },
   global: {
     title: "Global Coffee Engine",
     description: "Roasting several tons per week or more, often using machines for 60+ kg batches.",
     details: "A large-scale operator supplying national or international markets. Your focus is on mass production, consistency, and efficiency.",
-    beans: 3
+    beans: 3,
+    image: "/images/global-roaster.jpg"
   }
 };
 
@@ -177,20 +181,10 @@ export const RoasterForm = () => {
             ))}
           </div>
           <div className="bg-cream rounded-lg p-6">
-            {formData.productionTier ? (
-              <div className="animate-fadeIn">
-                <h4 className="font-playfair text-xl text-espresso mb-4">
-                  {TIER_INFO[formData.productionTier].title}
-                </h4>
-                <p className="text-slate">
-                  {TIER_INFO[formData.productionTier].details}
-                </p>
-              </div>
-            ) : (
-              <div className="text-center text-slate/60 h-full flex items-center justify-center">
-                <p>Select a tier to see more details</p>
-              </div>
-            )}
+            <TierDetailsPanel
+              selectedTier={formData.productionTier}
+              tierInfo={TIER_INFO}
+            />
           </div>
         </div>
       </div>
