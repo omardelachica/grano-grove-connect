@@ -158,26 +158,28 @@ export const RoasterForm = () => {
                     : 'border-espresso/20 hover:border-espresso/40'
                 }`}
               >
-                <button
-                  type="button"
-                  onClick={() => setFormData({ ...formData, productionTier: tier })}
-                  className="w-full p-4 flex items-center justify-between"
-                >
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-playfair text-lg text-espresso">{info.title}</h3>
-                    <div className="flex gap-1">
-                      {[...Array(info.beans)].map((_, i) => (
-                        <Bean key={i} className="w-4 h-4 text-espresso" />
-                      ))}
+                <div className="flex items-center justify-between">
+                  <button
+                    type="button"
+                    onClick={() => setFormData({ ...formData, productionTier: tier })}
+                    className="flex-1 p-4 text-left"
+                  >
+                    <div className="flex items-center gap-2">
+                      <h3 className="font-playfair text-lg text-espresso">{info.title}</h3>
+                      <div className="flex gap-1">
+                        {[...Array(info.beans)].map((_, i) => (
+                          <Bean key={i} className="w-4 h-4 text-espresso" />
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </button>
-                <AccordionTrigger className="px-4 py-2">
-                  <span className="text-sm text-slate">{info.description}</span>
-                </AccordionTrigger>
-                <AccordionContent className="px-4 pb-4">
-                  <p className="text-sm text-slate/80">{info.details}</p>
-                </AccordionContent>
+                    <p className="text-sm text-slate mt-1">{info.description}</p>
+                  </button>
+                  <AccordionTrigger className="px-4">
+                    <AccordionContent className="px-4">
+                      <p className="text-sm text-slate/80">{info.details}</p>
+                    </AccordionContent>
+                  </AccordionTrigger>
+                </div>
               </div>
             </AccordionItem>
           ))}
