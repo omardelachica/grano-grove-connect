@@ -83,18 +83,6 @@ export const ConsumerForm = () => {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <ConsumerTierSelection
-          selectedTier={formData.consumptionTier}
-          setSelectedTier={(tier) => setFormData({ ...formData, consumptionTier: tier })}
-          tierInfo={CONSUMER_TIER_INFO}
-        />
-        <ConsumerTierDetailsPanel
-          selectedTier={formData.consumptionTier}
-          tierInfo={CONSUMER_TIER_INFO}
-        />
-      </div>
-
       <div>
         <Label htmlFor="name">Full Name</Label>
         <Input
@@ -142,6 +130,18 @@ export const ConsumerForm = () => {
           placeholder="What's your favorite brewing method? When do you usually enjoy your coffee? Any specific preferences?"
           value={formData.consumptionDetails}
           onChange={(e) => setFormData({ ...formData, consumptionDetails: e.target.value })}
+        />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <ConsumerTierSelection
+          selectedTier={formData.consumptionTier}
+          setSelectedTier={(tier) => setFormData({ ...formData, consumptionTier: tier })}
+          tierInfo={CONSUMER_TIER_INFO}
+        />
+        <ConsumerTierDetailsPanel
+          selectedTier={formData.consumptionTier}
+          tierInfo={CONSUMER_TIER_INFO}
         />
       </div>
 
