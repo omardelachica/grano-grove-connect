@@ -39,7 +39,7 @@ export const WelcomeScreen = () => {
         <div 
           className="relative min-h-screen"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(https://images.unsplash.com/photo-1506744038136-46273834b3fb)`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(https://images.unsplash.com/photo-1447933601403-0c6688de566e)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed'
@@ -57,7 +57,7 @@ export const WelcomeScreen = () => {
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto animate-fadeIn" style={{ animationDelay: '0.4s' }}>
               <button
                 onClick={() => setUserType("roaster")}
-                className="p-8 rounded-xl border-2 border-cream/20 hover:border-cream transition-colors bg-black/40 backdrop-blur-sm group"
+                className="p-8 rounded-xl border-2 border-cream/20 hover:border-cream transition-colors bg-espresso/40 backdrop-blur-sm group"
               >
                 <Store className="w-12 h-12 text-gold mb-4 mx-auto" />
                 <h2 className="font-playfair text-2xl text-gold mb-2">I'm a Roaster</h2>
@@ -66,7 +66,7 @@ export const WelcomeScreen = () => {
 
               <button
                 onClick={() => setUserType("consumer")}
-                className="p-8 rounded-xl border-2 border-cream/20 hover:border-cream transition-colors bg-black/40 backdrop-blur-sm group"
+                className="p-8 rounded-xl border-2 border-cream/20 hover:border-cream transition-colors bg-espresso/40 backdrop-blur-sm group"
               >
                 <Coffee className="w-12 h-12 text-gold mb-4 mx-auto" />
                 <h2 className="font-playfair text-2xl text-gold mb-2">I'm a Coffee Lover</h2>
