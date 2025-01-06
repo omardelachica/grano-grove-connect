@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
 import { Store } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
+import { Slider } from "@/components/ui/slider";
 
 type FormData = {
   name: string;
@@ -114,21 +114,17 @@ export const RoasterForm = () => {
         />
       </div>
 
-      <div>
-        <Label>Annual Production Volume (kg)</Label>
-        <div className="flex items-center gap-4">
-          <Switch
-            checked={formData.productionVolume >= 1000}
-            onCheckedChange={(checked) =>
-              setFormData({
-                ...formData,
-                productionVolume: checked ? 1000 : 100,
-              })
-            }
-          />
-          <span className="text-sm text-slate">
-            {formData.productionVolume >= 1000 ? "1000+ kg/year" : "< 1000 kg/year"}
-          </span>
+      <div className="space-y-4">
+        <Label>Annual Production Volume (kg/year)</Label>
+        <Slider
+          value={[formData.productionVolume]}
+          onValueChange={(value) => setFormData({ ...formData, productionVolume: value[0] })}
+          max={10000}
+          step={100}
+          className="py-4"
+        />
+        <div className="text-sm text-slate text-right">
+          {formData.productionVolume >= 10000 ? ">10,000" : formData.productionVolume} kg/year
         </div>
       </div>
 
