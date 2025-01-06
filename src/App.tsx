@@ -5,6 +5,7 @@ import Explore from './pages/Explore';
 import CoffeeDetail from './pages/CoffeeDetail';
 import RoasterProfile from './pages/RoasterProfile';
 import RoastersCatalogue from './pages/RoastersCatalogue';
+import { WelcomeScreen } from './components/welcome/WelcomeScreen';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Toaster } from './components/ui/toaster';
@@ -16,7 +17,8 @@ function App() {
         <Navbar />
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<WelcomeScreen />} />
+            <Route path="/home" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/coffee/:id" element={<CoffeeDetail />} />
