@@ -57,7 +57,9 @@ export const ConsumerForm = () => {
     <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-6">
       <div className="text-center mb-8">
         <Coffee className="w-12 h-12 text-espresso mb-4 mx-auto" />
-        <h2 className="font-playfair text-3xl text-espresso mb-2">Join as a Coffee Lover</h2>
+        <h2 className="font-playfair text-3xl text-espresso mb-2">
+          I'm interested in buying specialty coffee from Roasters/Producers using Grano
+        </h2>
       </div>
 
       <div>

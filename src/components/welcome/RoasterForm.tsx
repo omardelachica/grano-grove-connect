@@ -2,21 +2,12 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Store, Bean } from "lucide-react";
+import { Store } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
 import { TierDetailsPanel } from "./TierDetailsPanel";
-
-type ProductionTier = 'craft' | 'scaling' | 'global';
-
-type FormData = {
-  name: string;
-  businessName: string;
-  phone: string;
-  email: string;
-  address: string;
-  productionTier: ProductionTier | null;
-};
+import { TierSelection } from "./TierSelection";
+import { FormData, ProductionTier } from "./types";
 
 const TIER_INFO = {
   craft: {
@@ -95,7 +86,9 @@ export const RoasterForm = () => {
     <form onSubmit={handleSubmit} className="max-w-6xl mx-auto space-y-6">
       <div className="text-center mb-8">
         <Store className="w-12 h-12 text-espresso mb-4 mx-auto" />
-        <h2 className="font-playfair text-3xl text-espresso mb-2">Register as a Roaster</h2>
+        <h2 className="font-playfair text-3xl text-espresso mb-2">
+          I'm interested in joining Grano as a Roaster
+        </h2>
       </div>
 
       <div>
@@ -152,34 +145,11 @@ export const RoasterForm = () => {
       <div className="space-y-4">
         <Label>Select Your Production Tier</Label>
         <div className="grid grid-cols-[1fr,1fr] gap-6">
-          <div className="space-y-4">
-            {(Object.entries(TIER_INFO) as [ProductionTier, typeof TIER_INFO.craft][]).map(([tier, info]) => (
-              <div
-                key={tier}
-                className={`rounded-lg border-2 transition-all ${
-                  formData.productionTier === tier
-                    ? 'border-espresso bg-cream'
-                    : 'border-espresso/20 hover:border-espresso/40'
-                }`}
-              >
-                <button
-                  type="button"
-                  onClick={() => setFormData({ ...formData, productionTier: tier })}
-                  className="w-full p-4 flex items-center justify-between"
-                >
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-playfair text-lg text-espresso">{info.title}</h3>
-                    <div className="flex gap-1">
-                      {[...Array(info.beans)].map((_, i) => (
-                        <Bean key={i} className="w-4 h-4 text-espresso" />
-                      ))}
-                    </div>
-                  </div>
-                  <p className="text-sm text-slate">{info.description}</p>
-                </button>
-              </div>
-            ))}
-          </div>
+          <TierSelection
+            selectedTier={formData.productionTier}
+            onTierSelect={(tier) => setFormData({ ...formData, productionTier: tier })}
+            tierInfo={TIER_INFO}
+          />
           <div className="bg-cream rounded-lg p-6">
             <TierDetailsPanel
               selectedTier={formData.productionTier}
