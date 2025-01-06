@@ -6,7 +6,7 @@ import { SustainabilitySection } from "@/components/SustainabilitySection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-cream font-inter">
+    <div className="min-h-screen bg-white">
       <HeroSection />
       <CallToAction />
       <FeaturedSection />
