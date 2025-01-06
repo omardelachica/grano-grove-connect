@@ -36,40 +36,51 @@ export const WelcomeScreen = () => {
   return (
     <div className="min-h-screen bg-white">
       {!userType ? (
-        <div className="container mx-auto px-4 py-16 md:py-32">
-          <h1 className="font-playfair text-4xl md:text-6xl text-espresso text-center mb-8">
-            Welcome to Grano
-          </h1>
-          <p className="text-slate text-center mb-12 max-w-2xl mx-auto">
-            Join our community of specialty coffee enthusiasts and artisanal roasters
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <button
-              onClick={() => setUserType("roaster")}
-              className="p-8 rounded-xl border-2 border-espresso/20 hover:border-espresso transition-colors bg-white group"
-            >
-              <Store className="w-12 h-12 text-espresso mb-4 mx-auto" />
-              <h2 className="font-playfair text-2xl text-espresso mb-2">I'm a Roaster</h2>
-              <p className="text-slate">Join our marketplace and showcase your specialty beans</p>
-            </button>
+        <div 
+          className="relative min-h-screen"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(https://images.unsplash.com/photo-1506744038136-46273834b3fb)`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }}
+        >
+          <div className="container mx-auto px-4 py-32 md:py-48 relative z-10">
+            <h1 className="font-playfair text-4xl md:text-6xl text-white text-center mb-8 animate-fadeIn">
+              Building A Global Coffee Community
+            </h1>
+            <p className="text-cream text-center mb-12 max-w-2xl mx-auto text-lg md:text-xl animate-fadeIn" style={{ animationDelay: '0.2s' }}>
+              Connecting Roasters, Producers, and Coffee Aficionados worldwide. 
+              Are you interested? Join our waiting list below.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto animate-fadeIn" style={{ animationDelay: '0.4s' }}>
+              <button
+                onClick={() => setUserType("roaster")}
+                className="p-8 rounded-xl border-2 border-cream/20 hover:border-cream transition-colors bg-black/40 backdrop-blur-sm group"
+              >
+                <Store className="w-12 h-12 text-gold mb-4 mx-auto" />
+                <h2 className="font-playfair text-2xl text-gold mb-2">I'm a Roaster</h2>
+                <p className="text-cream/80">Join our marketplace and showcase your specialty beans</p>
+              </button>
+
+              <button
+                onClick={() => setUserType("consumer")}
+                className="p-8 rounded-xl border-2 border-cream/20 hover:border-cream transition-colors bg-black/40 backdrop-blur-sm group"
+              >
+                <Coffee className="w-12 h-12 text-gold mb-4 mx-auto" />
+                <h2 className="font-playfair text-2xl text-gold mb-2">I'm a Coffee Lover</h2>
+                <p className="text-cream/80">Discover and purchase exceptional coffee beans</p>
+              </button>
+            </div>
 
             <button
-              onClick={() => setUserType("consumer")}
-              className="p-8 rounded-xl border-2 border-espresso/20 hover:border-espresso transition-colors bg-white group"
+              onClick={() => setShowPasswordDialog(true)}
+              className="mt-8 text-cream/60 hover:text-cream text-sm block mx-auto"
             >
-              <Coffee className="w-12 h-12 text-espresso mb-4 mx-auto" />
-              <h2 className="font-playfair text-2xl text-espresso mb-2">I'm a Coffee Lover</h2>
-              <p className="text-slate">Discover and purchase exceptional coffee beans</p>
+              I have a password
             </button>
           </div>
-
-          <button
-            onClick={() => setShowPasswordDialog(true)}
-            className="mt-8 text-espresso/60 hover:text-espresso text-sm block mx-auto"
-          >
-            I have a password
-          </button>
         </div>
       ) : (
         <div className="container mx-auto px-4 py-16 bg-white">
