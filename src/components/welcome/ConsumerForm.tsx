@@ -8,6 +8,7 @@ import { supabase } from "@/lib/supabase";
 import { ConsumerTierSelection } from "./ConsumerTierSelection";
 import { ConsumerTierDetailsPanel } from "./ConsumerTierDetailsPanel";
 import { ConsumerFormData, ConsumptionTier } from "./types";
+import { Textarea } from "@/components/ui/textarea";
 
 export const CONSUMER_TIER_INFO = {
   casual: {
@@ -29,7 +30,7 @@ export const CONSUMER_TIER_INFO = {
     description: "For the true coffee aficionado",
     details: "Coffee is life! With more than 3 cups a day, you savor the buzz and love every sip. Consumption: Over 21 cups per week (more than 3 cups per day).",
     cups: 3,
-    image: "https://images.unsplash.com/photo-1511537190424-bbbab1bb7c9d?auto=format&fit=crop&w=800&h=600",
+    image: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&h=600",
   },
 };
 
@@ -41,6 +42,7 @@ export const ConsumerForm = () => {
     email: "",
     address: "",
     consumptionTier: null,
+    consumptionDetails: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -54,6 +56,7 @@ export const ConsumerForm = () => {
         email: formData.email,
         address: formData.address,
         consumption_tier: formData.consumptionTier,
+        consumption_details: formData.consumptionDetails,
       });
 
       if (error) throw error;
@@ -129,6 +132,16 @@ export const ConsumerForm = () => {
           id="address"
           value={formData.address}
           onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+        />
+      </div>
+
+      <div>
+        <Label htmlFor="consumptionDetails">Tell us more about your coffee consumption habits</Label>
+        <Textarea
+          id="consumptionDetails"
+          placeholder="What's your favorite brewing method? When do you usually enjoy your coffee? Any specific preferences?"
+          value={formData.consumptionDetails}
+          onChange={(e) => setFormData({ ...formData, consumptionDetails: e.target.value })}
         />
       </div>
 

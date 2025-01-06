@@ -32,4 +32,5 @@ export type ConsumerFormData = {
   email: string;
   address: string;
   consumptionTier: ConsumptionTier | null;
+  consumptionDetails: string;
 };
