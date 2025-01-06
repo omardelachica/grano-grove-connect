@@ -7,7 +7,7 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="border-b">
+    <nav className="border-b bg-cream">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <Link to="/" className="font-playfair text-4xl text-espresso">
@@ -33,10 +33,10 @@ export function Navbar() {
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center space-x-4">
             <Link to="/explore">
-              <Button variant="ghost">Explore</Button>
+              <Button variant="ghost" className="hover:bg-cream/80">Explore</Button>
             </Link>
             <Link to="/roasters">
-              <Button variant="ghost">
+              <Button variant="ghost" className="hover:bg-cream/80">
                 <Users className="w-4 h-4 mr-2" />
                 Producers
               </Button>
@@ -49,14 +49,14 @@ export function Navbar() {
 
         {/* Mobile navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 space-y-2">
+          <div className="md:hidden py-4 space-y-2 bg-cream">
             <Link to="/explore" className="block">
-              <Button variant="ghost" className="w-full justify-start">
+              <Button variant="ghost" className="w-full justify-start hover:bg-cream/80">
                 Explore
               </Button>
             </Link>
             <Link to="/roasters" className="block">
-              <Button variant="ghost" className="w-full justify-start">
+              <Button variant="ghost" className="w-full justify-start hover:bg-cream/80">
                 <Users className="w-4 h-4 mr-2" />
                 Producers
               </Button>
