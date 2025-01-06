@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Store } from "lucide-react";
+import { Store, Bean } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 type ProductionTier = 'craft' | 'scaling' | 'global';
 
@@ -21,17 +22,20 @@ const TIER_INFO = {
   craft: {
     title: "Craft Coffee Creator",
     description: "Up to 300 kg per week, typically roasting in 5–30 kg batches.",
-    details: "Passionate about precision, small batches, and unique, high-quality coffee. You love experimenting with roast profiles and building personal connections."
+    details: "Passionate about precision, small batches, and unique, high-quality coffee. You love experimenting with roast profiles and building personal connections.",
+    beans: 1
   },
   scaling: {
     title: "Scaling Specialist",
     description: "Roasting 300 kg to several tons per week, with a mix of custom and standardized processes.",
-    details: "Growing your reach while balancing quality and efficiency. You supply mid-sized cafés, regional markets, or specialty chains with reliable, consistent coffee."
+    details: "Growing your reach while balancing quality and efficiency. You supply mid-sized cafés, regional markets, or specialty chains with reliable, consistent coffee.",
+    beans: 2
   },
   global: {
     title: "Global Coffee Engine",
     description: "Roasting several tons per week or more, often using machines for 60+ kg batches.",
-    details: "A large-scale operator supplying national or international markets. Your focus is on mass production, consistency, and efficiency."
+    details: "A large-scale operator supplying national or international markets. Your focus is on mass production, consistency, and efficiency.",
+    beans: 3
   }
 };
 
@@ -144,24 +148,40 @@ export const RoasterForm = () => {
 
       <div className="space-y-4">
         <Label>Select Your Production Tier</Label>
-        <div className="grid gap-4">
+        <Accordion type="single" collapsible className="w-full">
           {(Object.entries(TIER_INFO) as [ProductionTier, typeof TIER_INFO.craft][]).map(([tier, info]) => (
-            <button
-              key={tier}
-              type="button"
-              onClick={() => setFormData({ ...formData, productionTier: tier })}
-              className={`p-4 rounded-lg border-2 text-left transition-all ${
-                formData.productionTier === tier
-                  ? 'border-espresso bg-cream'
-                  : 'border-espresso/20 hover:border-espresso/40'
-              }`}
-            >
-              <h3 className="font-playfair text-lg text-espresso mb-1">{info.title}</h3>
-              <p className="text-sm text-slate mb-2">{info.description}</p>
-              <p className="text-xs text-slate/80">{info.details}</p>
-            </button>
+            <AccordionItem value={tier} key={tier}>
+              <div
+                className={`rounded-lg border-2 transition-all ${
+                  formData.productionTier === tier
+                    ? 'border-espresso bg-cream'
+                    : 'border-espresso/20 hover:border-espresso/40'
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => setFormData({ ...formData, productionTier: tier })}
+                  className="w-full p-4 flex items-center justify-between"
+                >
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-playfair text-lg text-espresso">{info.title}</h3>
+                    <div className="flex gap-1">
+                      {[...Array(info.beans)].map((_, i) => (
+                        <Bean key={i} className="w-4 h-4 text-espresso" />
+                      ))}
+                    </div>
+                  </div>
+                </button>
+                <AccordionTrigger className="px-4 py-2">
+                  <span className="text-sm text-slate">{info.description}</span>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 pb-4">
+                  <p className="text-sm text-slate/80">{info.details}</p>
+                </AccordionContent>
+              </div>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </div>
 
       <Button type="submit" className="w-full">Join Grano</Button>
