@@ -15,21 +15,21 @@ const TIER_INFO = {
     description: "Up to 300 kg per week, typically roasting in 5–30 kg batches.",
     details: "Passionate about precision, small batches, and unique, high-quality coffee. You love experimenting with roast profiles and building personal connections.",
     beans: 1,
-    image: "/images/craft-roaster.jpg"
+    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&h=600"
   },
   scaling: {
     title: "Scaling Specialist",
     description: "Roasting 300 kg to several tons per week, with a mix of custom and standardized processes.",
     details: "Growing your reach while balancing quality and efficiency. You supply mid-sized cafés, regional markets, or specialty chains with reliable, consistent coffee.",
     beans: 2,
-    image: "/images/scaling-roaster.jpg"
+    image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&h=600"
   },
   global: {
     title: "Global Coffee Engine",
     description: "Roasting several tons per week or more, often using machines for 60+ kg batches.",
     details: "A large-scale operator supplying national or international markets. Your focus is on mass production, consistency, and efficiency.",
     beans: 3,
-    image: "/images/global-roaster.jpg"
+    image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&h=600"
   }
 };
 
