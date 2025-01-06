@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "https://granoapp.io",  // Updated to match the production domain
+  base: "/",  // Changed from "https://granoapp.io" to "/" for custom domain support
   server: {
     host: "::",
     port: 8080,
