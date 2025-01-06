@@ -26,7 +26,7 @@ export const TierDetailsPanel = ({ selectedTier, tierInfo }: Props) => {
 
   return (
     <div className="animate-fadeIn space-y-4">
-      <h4 className="font-playfair text-xl text-espresso mb-4">
+      <h4 className="font-playfair text-xl text-espresso mb-4 font-bold">
         {info.title}
       </h4>
       <div className="aspect-video rounded-lg overflow-hidden mb-4">
