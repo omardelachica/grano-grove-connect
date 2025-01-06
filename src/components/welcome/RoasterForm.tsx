@@ -6,6 +6,7 @@ import { Store } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
 import { Slider } from "@/components/ui/slider";
+import { Progress } from "@/components/ui/progress";
 
 type FormData = {
   name: string;
@@ -123,8 +124,14 @@ export const RoasterForm = () => {
           step={100}
           className="py-4"
         />
+        <div className="flex justify-between text-xs text-slate mb-2">
+          <span>0 kg/year</span>
+          <span>5,000 kg/year</span>
+          <span>>10,000 kg/year</span>
+        </div>
+        <Progress value={(formData.productionVolume / 10000) * 100} className="h-2" />
         <div className="text-sm text-slate text-right">
-          {formData.productionVolume >= 10000 ? ">10,000" : formData.productionVolume} kg/year
+          Selected: {formData.productionVolume >= 10000 ? ">10,000" : formData.productionVolume} kg/year
         </div>
       </div>
 
