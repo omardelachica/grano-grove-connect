@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Store, Bean } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 type ProductionTier = 'craft' | 'scaling' | 'global';
 
@@ -89,7 +88,7 @@ export const RoasterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-6">
+    <form onSubmit={handleSubmit} className="max-w-6xl mx-auto space-y-6">
       <div className="text-center mb-8">
         <Store className="w-12 h-12 text-espresso mb-4 mx-auto" />
         <h2 className="font-playfair text-3xl text-espresso mb-2">Register as a Roaster</h2>
@@ -148,42 +147,52 @@ export const RoasterForm = () => {
 
       <div className="space-y-4">
         <Label>Select Your Production Tier</Label>
-        <Accordion type="single" collapsible className="w-full">
-          {(Object.entries(TIER_INFO) as [ProductionTier, typeof TIER_INFO.craft][]).map(([tier, info]) => (
-            <AccordionItem value={tier} key={tier}>
+        <div className="grid grid-cols-[1fr,1fr] gap-6">
+          <div className="space-y-4">
+            {(Object.entries(TIER_INFO) as [ProductionTier, typeof TIER_INFO.craft][]).map(([tier, info]) => (
               <div
+                key={tier}
                 className={`rounded-lg border-2 transition-all ${
                   formData.productionTier === tier
                     ? 'border-espresso bg-cream'
                     : 'border-espresso/20 hover:border-espresso/40'
                 }`}
               >
-                <div className="flex items-center justify-between">
-                  <button
-                    type="button"
-                    onClick={() => setFormData({ ...formData, productionTier: tier })}
-                    className="flex-1 p-4 text-left"
-                  >
-                    <div className="flex items-center gap-2">
-                      <h3 className="font-playfair text-lg text-espresso">{info.title}</h3>
-                      <div className="flex gap-1">
-                        {[...Array(info.beans)].map((_, i) => (
-                          <Bean key={i} className="w-4 h-4 text-espresso" />
-                        ))}
-                      </div>
+                <button
+                  type="button"
+                  onClick={() => setFormData({ ...formData, productionTier: tier })}
+                  className="w-full p-4 flex items-center justify-between"
+                >
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-playfair text-lg text-espresso">{info.title}</h3>
+                    <div className="flex gap-1">
+                      {[...Array(info.beans)].map((_, i) => (
+                        <Bean key={i} className="w-4 h-4 text-espresso" />
+                      ))}
                     </div>
-                    <p className="text-sm text-slate mt-1">{info.description}</p>
-                  </button>
-                  <AccordionTrigger className="px-4">
-                    <AccordionContent className="px-4">
-                      <p className="text-sm text-slate/80">{info.details}</p>
-                    </AccordionContent>
-                  </AccordionTrigger>
-                </div>
+                  </div>
+                  <p className="text-sm text-slate">{info.description}</p>
+                </button>
               </div>
-            </AccordionItem>
-          ))}
-        </Accordion>
+            ))}
+          </div>
+          <div className="bg-cream rounded-lg p-6">
+            {formData.productionTier ? (
+              <div className="animate-fadeIn">
+                <h4 className="font-playfair text-xl text-espresso mb-4">
+                  {TIER_INFO[formData.productionTier].title}
+                </h4>
+                <p className="text-slate">
+                  {TIER_INFO[formData.productionTier].details}
+                </p>
+              </div>
+            ) : (
+              <div className="text-center text-slate/60 h-full flex items-center justify-center">
+                <p>Select a tier to see more details</p>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
 
       <Button type="submit" className="w-full">Join Grano</Button>
