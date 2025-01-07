@@ -3,7 +3,7 @@ import { Coffee, Store, Users } from "lucide-react";
 
 export const MarketplaceFlow = () => {
   return (
-    <div className="flex flex-col items-center justify-center my-12 relative h-[400px]">
+    <div className="flex flex-col items-center justify-center my-12 relative h-[400px] overflow-x-hidden w-full">
       {/* Orbiting Elements Container */}
       <div className="relative w-full max-w-md aspect-square">
         {/* Roasters Orbit */}
