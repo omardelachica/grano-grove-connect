@@ -19,7 +19,7 @@ export const MarketplaceFlow = () => {
           className="absolute inset-0"
         >
           <motion.div
-            className="absolute -top-24 left-1/2 -translate-x-1/2 text-center"
+            className="absolute -top-16 left-1/2 -translate-x-1/2 text-center"
             animate={{
               rotate: -360,
             }}
@@ -53,7 +53,7 @@ export const MarketplaceFlow = () => {
           className="absolute inset-0"
         >
           <motion.div
-            className="absolute -bottom-24 left-1/2 -translate-x-1/2 text-center"
+            className="absolute -bottom-16 left-1/2 -translate-x-1/2 text-center"
             animate={{
               rotate: -360,
             }}
@@ -79,7 +79,7 @@ export const MarketplaceFlow = () => {
           <motion.circle
             cx="100"
             cy="100"
-            r="80"
+            r="60"
             fill="none"
             stroke="rgba(111, 78, 55, 0.1)"
             strokeWidth="1"
