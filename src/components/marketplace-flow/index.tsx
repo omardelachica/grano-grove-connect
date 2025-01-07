@@ -19,9 +19,9 @@ export const MarketplaceFlow = () => {
           className="absolute inset-0"
         >
           <motion.div
-            className="absolute -top-16 left-1/2 -translate-x-1/2 text-center"
+            className="absolute -top-24 left-1/2 -translate-x-1/2 text-center"
             animate={{
-              rotate: -360, // Counter-rotate to keep the content upright
+              rotate: -360,
             }}
             transition={{
               duration: 20,
@@ -48,14 +48,14 @@ export const MarketplaceFlow = () => {
             duration: 20,
             repeat: Infinity,
             ease: "linear",
-            delay: -10, // Start at a different position
+            delay: -10,
           }}
           className="absolute inset-0"
         >
           <motion.div
-            className="absolute -bottom-16 left-1/2 -translate-x-1/2 text-center"
+            className="absolute -bottom-24 left-1/2 -translate-x-1/2 text-center"
             animate={{
-              rotate: -360, // Counter-rotate to keep the content upright
+              rotate: -360,
             }}
             transition={{
               duration: 20,
@@ -88,26 +88,26 @@ export const MarketplaceFlow = () => {
         </svg>
 
         {/* Central Grano Logo */}
-        <motion.div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-          animate={{ 
-            scale: [1, 1.05, 1],
-            rotate: [0, 5, -5, 0]
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <div className="bg-cream rounded-full p-6 border-2 border-espresso/20 shadow-lg">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <motion.div
+            className="bg-cream rounded-full p-6 border-2 border-espresso/20 shadow-lg"
+            animate={{ 
+              scale: [1, 1.05, 1],
+              rotate: [0, 5, -5, 0]
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
             <img 
               src="/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png" 
               alt="Grano Logo" 
               className="h-12 w-12 object-contain"
             />
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </div>
   );
