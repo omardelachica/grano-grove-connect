@@ -30,6 +30,16 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route 
+              path="/" 
+              element={
+                hasVisitedWelcome ? (
+                  <Navigate to="/explore" replace />
+                ) : (
+                  <Navigate to="/welcome" replace />
+                )
+              } 
+            />
+            <Route 
               path="/welcome" 
               element={
                 <WelcomeScreen 
@@ -41,10 +51,10 @@ function App() {
               } 
             />
             <Route
-              path="/"
+              path="/explore"
               element={
                 <ProtectedRoute>
-                  <Index />
+                  <Explore />
                 </ProtectedRoute>
               }
             />
@@ -53,14 +63,6 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Auth />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/explore"
-              element={
-                <ProtectedRoute>
-                  <Explore />
                 </ProtectedRoute>
               }
             />
