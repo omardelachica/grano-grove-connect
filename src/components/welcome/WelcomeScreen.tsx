@@ -28,7 +28,7 @@ export const WelcomeScreen = ({ onComplete }: Props) => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <div 
-        className="relative min-h-[80vh] flex items-center"
+        className="relative min-h-[80vh] flex items-center w-full"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(https://images.unsplash.com/photo-1447933601403-0c6688de566e)`,
           backgroundSize: 'cover',
@@ -94,10 +94,10 @@ export const WelcomeScreen = ({ onComplete }: Props) => {
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center w-full"
+            className="absolute bottom-8 left-0 right-0 text-center"
           >
             <p className="text-cream/80 mb-2 text-sm">Discover more about Grano</p>
-            <div className="flex flex-col items-center justify-center gap-1 mx-auto">
+            <div className="flex flex-col items-center justify-center gap-1">
               <ChevronDown className="w-6 h-6 text-cream/80" />
               <ChevronDown className="w-6 h-6 text-cream/80 -mt-4" />
             </div>
