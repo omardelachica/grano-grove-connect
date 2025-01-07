@@ -31,13 +31,7 @@ function App() {
           <Routes>
             <Route 
               path="/" 
-              element={
-                hasVisitedWelcome ? (
-                  <Navigate to="/explore" replace />
-                ) : (
-                  <Navigate to="/welcome" replace />
-                )
-              } 
+              element={<Navigate to="/welcome" replace />} 
             />
             <Route 
               path="/welcome" 
