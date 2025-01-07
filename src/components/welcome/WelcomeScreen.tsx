@@ -10,7 +10,11 @@ import { ConsumerForm } from "./ConsumerForm";
 
 type UserType = "roaster" | "consumer" | null;
 
-export const WelcomeScreen = () => {
+type Props = {
+  onComplete?: () => void;
+};
+
+export const WelcomeScreen = ({ onComplete }: Props) => {
   const [userType, setUserType] = useState<UserType>(null);
   const [showPasswordDialog, setShowPasswordDialog] = useState(false);
   const [password, setPassword] = useState("");
@@ -23,6 +27,7 @@ export const WelcomeScreen = () => {
         title: "Welcome to Grano!",
         description: "Access granted. Enjoy exploring specialty coffee.",
       });
+      if (onComplete) onComplete();
       navigate("/explore");
     } else {
       toast({
