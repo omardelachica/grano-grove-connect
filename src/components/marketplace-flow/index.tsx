@@ -38,23 +38,38 @@ export const MarketplaceFlow = () => {
           className="absolute inset-0"
         >
           <svg className="w-full h-full" viewBox="0 0 200 100">
+            {/* Path from Roaster to Grano */}
             <motion.path
-              d="M 20,0 C 80,50 120,50 180,0"
+              d="M 100,0 L 100,40"
               fill="none"
               stroke="rgba(111, 78, 55, 0.2)"
               strokeWidth="2"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
             />
+            {/* Path from Grano to Coffee Lovers */}
             <motion.path
-              d="M 20,100 C 80,50 120,50 180,100"
+              d="M 100,60 L 100,100"
               fill="none"
               stroke="rgba(111, 78, 55, 0.2)"
               strokeWidth="2"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 2, delay: 0.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+              transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
+            />
+            {/* Circular paths around Grano */}
+            <motion.path
+              d="M 70,50 A 30,30 0 0 1 130,50"
+              fill="none"
+              stroke="rgba(111, 78, 55, 0.2)"
+              strokeWidth="2"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1, rotate: 360 }}
+              transition={{ 
+                pathLength: { duration: 2, ease: "easeInOut" },
+                rotate: { duration: 8, repeat: Infinity, ease: "linear" }
+              }}
             />
           </svg>
         </motion.div>
