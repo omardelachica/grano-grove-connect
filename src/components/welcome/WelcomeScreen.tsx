@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Coffee } from "lucide-react";
+import { Coffee, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RoasterForm } from "./RoasterForm";
 import { ConsumerForm } from "./ConsumerForm";
@@ -84,6 +84,23 @@ export const WelcomeScreen = ({ onComplete }: Props) => {
             >
               Skip for now
             </button>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 0 }}
+            animate={{ opacity: 1, y: [0, 10, 0] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center"
+          >
+            <p className="text-cream/80 mb-2 text-sm">Discover more about Grano</p>
+            <div className="flex flex-col items-center gap-1">
+              <ChevronDown className="w-6 h-6 text-cream/80" />
+              <ChevronDown className="w-6 h-6 text-cream/80 -mt-4" />
+            </div>
           </motion.div>
         </div>
       </div>
