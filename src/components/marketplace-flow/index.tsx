@@ -1,80 +1,63 @@
 import { motion } from "framer-motion";
-import { Coffee, Store, Users } from "lucide-react";
+import { Coffee, Store, Users, Building, Factory } from "lucide-react";
 
 export const MarketplaceFlow = () => {
+  const orbitItems = [
+    { icon: Store, label: "Roasters", delay: 0 },
+    { icon: Users, label: "Coffee Lovers", delay: -8 },
+    { icon: Building, label: "Coffee Shops", delay: -4 },
+    { icon: Factory, label: "Producers", delay: -12 },
+  ];
+
   return (
     <div className="flex flex-col items-center justify-center my-12 relative h-[400px] overflow-x-hidden w-full">
-      {/* Orbiting Elements Container */}
       <div className="relative w-full max-w-md aspect-square">
-        {/* Roasters Orbit */}
-        <motion.div
-          animate={{
-            rotate: 360,
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute inset-0"
-        >
+        {orbitItems.map((item, index) => (
           <motion.div
-            className="absolute -top-16 left-1/2 -translate-x-1/2 text-center"
+            key={item.label}
             animate={{
-              rotate: -360,
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          >
-            <div className="bg-cream p-4 rounded-full inline-flex items-center justify-center mb-4">
-              <Store className="h-8 w-8 text-espresso" />
-            </div>
-            <h3 className="text-xl font-semibold text-espresso mb-2">Roasters</h3>
-            <p className="text-slate max-w-[200px] leading-relaxed text-sm">
-              Showcase your artisanal coffee beans
-            </p>
-          </motion.div>
-        </motion.div>
-
-        {/* Coffee Lovers Orbit */}
-        <motion.div
-          animate={{
-            rotate: 360,
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-            delay: -10,
-          }}
-          className="absolute inset-0"
-        >
-          <motion.div
-            className="absolute -bottom-16 left-1/2 -translate-x-1/2 text-center"
-            animate={{
-              rotate: -360,
+              rotate: 360,
             }}
             transition={{
               duration: 20,
               repeat: Infinity,
               ease: "linear",
-              delay: -10,
+              delay: item.delay,
             }}
+            className="absolute inset-0"
           >
-            <div className="bg-cream p-4 rounded-full inline-flex items-center justify-center mb-4">
-              <Users className="h-8 w-8 text-espresso" />
-            </div>
-            <h3 className="text-xl font-semibold text-espresso mb-2">Coffee Lovers</h3>
-            <p className="text-slate max-w-[200px] leading-relaxed text-sm">
-              Find exceptional coffee beans
-            </p>
+            <motion.div
+              className={`absolute ${
+                index === 0
+                  ? "-top-16"
+                  : index === 1
+                  ? "-bottom-16"
+                  : index === 2
+                  ? "-right-16"
+                  : "-left-16"
+              } ${
+                index === 2 || index === 3 ? "top-1/2 -translate-y-1/2" : ""
+              } ${
+                index === 0 || index === 1 ? "left-1/2 -translate-x-1/2" : ""
+              } text-center`}
+              animate={{
+                rotate: -360,
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear",
+                delay: item.delay,
+              }}
+            >
+              <div className="bg-cream p-4 rounded-full inline-flex items-center justify-center mb-2">
+                <item.icon className="h-8 w-8 text-espresso" />
+              </div>
+              <h3 className="text-xl font-semibold text-espresso">{item.label}</h3>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        ))}
 
-        {/* Orbital Paths */}
         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 200">
           <motion.circle
             cx="100"
@@ -87,7 +70,6 @@ export const MarketplaceFlow = () => {
           />
         </svg>
 
-        {/* Central Grano Logo */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <motion.div
             className="bg-cream rounded-full p-6 border-2 border-espresso/20 shadow-lg"
