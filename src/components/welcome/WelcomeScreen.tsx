@@ -94,10 +94,10 @@ export const WelcomeScreen = ({ onComplete }: Props) => {
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center"
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center w-full"
           >
             <p className="text-cream/80 mb-2 text-sm">Discover more about Grano</p>
-            <div className="flex flex-col items-center gap-1">
+            <div className="flex flex-col items-center justify-center gap-1 mx-auto">
               <ChevronDown className="w-6 h-6 text-cream/80" />
               <ChevronDown className="w-6 h-6 text-cream/80 -mt-4" />
             </div>
