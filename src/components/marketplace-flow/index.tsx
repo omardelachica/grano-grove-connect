@@ -31,12 +31,12 @@ export const MarketplaceFlow = () => {
             <div
               className={`absolute ${
                 index === 0
-                  ? "-top-16"
+                  ? "-top-8"
                   : index === 1
-                  ? "-bottom-16"
+                  ? "-bottom-8"
                   : index === 2
-                  ? "-right-16"
-                  : "-left-16"
+                  ? "-right-8"
+                  : "-left-8"
               } ${
                 index === 2 || index === 3 ? "top-1/2 -translate-y-1/2" : ""
               } ${
