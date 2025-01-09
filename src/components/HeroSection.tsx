@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, ChevronDown, ToggleLeft, ToggleRight } from "lucide-react";
+import { ArrowRight, ChevronDown, ToggleLeft, ToggleRight, Coffee, Wheat } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -98,21 +98,29 @@ export const HeroSection = () => {
                 Join <ArrowRight className="ml-2 animate-pulse" />
               </Button>
             </div>
-            <div className="flex items-center justify-center gap-3 mt-4">
-              <span className="text-cream/90 text-sm">Coffee Lover</span>
+            <div className="flex items-center justify-center gap-8 mt-6">
+              <div className={`flex items-center gap-2 ${!isProducer ? 'text-cream' : 'text-cream/50'}`}>
+                <Coffee className="h-5 w-5" />
+                <span className="text-sm font-medium">Coffee Lover</span>
+              </div>
               <Toggle
                 pressed={isProducer}
                 onPressedChange={setIsProducer}
-                className="bg-forest/20 data-[state=on]:bg-forest"
+                className="bg-forest/20 data-[state=on]:bg-forest w-14 h-7"
                 aria-label="Toggle producer mode"
               >
-                {isProducer ? (
-                  <ToggleRight className="h-4 w-4 text-cream" />
-                ) : (
-                  <ToggleLeft className="h-4 w-4 text-cream" />
-                )}
+                <div className="w-full h-full flex items-center justify-center">
+                  {isProducer ? (
+                    <ToggleRight className="h-5 w-5 text-cream" />
+                  ) : (
+                    <ToggleLeft className="h-5 w-5 text-cream" />
+                  )}
+                </div>
               </Toggle>
-              <span className="text-cream/90 text-sm">Producer</span>
+              <div className={`flex items-center gap-2 ${isProducer ? 'text-cream' : 'text-cream/50'}`}>
+                <Wheat className="h-5 w-5" />
+                <span className="text-sm font-medium">Producer</span>
+              </div>
             </div>
           </form>
 
