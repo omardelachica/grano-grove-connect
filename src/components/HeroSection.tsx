@@ -82,9 +82,9 @@ export const HeroSection = () => {
               <Button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="bg-cream text-espresso hover:bg-cream/90 h-12 px-6"
+                className="bg-forest hover:bg-forest/90 text-cream h-12 px-6 transform transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
               >
-                Join <ArrowRight className="ml-2" />
+                Join <ArrowRight className="ml-2 animate-pulse" />
               </Button>
             </div>
           </form>
