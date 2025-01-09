@@ -77,10 +77,6 @@ export const WelcomeScreen = ({ onComplete }: Props) => {
             className="absolute bottom-8 left-0 right-0 text-center"
           >
             <p className="text-cream/80 mb-2 text-sm">Discover more about Grano</p>
-            <div className="flex flex-col items-center justify-center gap-1">
-              <ChevronDown className="w-6 h-6 text-cream/80" />
-              <ChevronDown className="w-6 h-6 text-cream/80 -mt-4" />
-            </div>
           </motion.div>
         </div>
       </div>
