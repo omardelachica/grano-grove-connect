@@ -12,6 +12,18 @@ export const MarketplaceFlow = () => {
   return (
     <div className="flex flex-col items-center justify-center relative h-screen overflow-hidden w-full">
       <div className="relative w-full max-w-md aspect-square">
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+          <motion.circle
+            cx="100"
+            cy="100"
+            r="60"
+            fill="none"
+            stroke="rgba(111, 78, 55, 0.1)"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+          />
+        </svg>
+
         {orbitItems.map((item, index) => (
           <motion.div
             key={item.label}
@@ -57,20 +69,6 @@ export const MarketplaceFlow = () => {
             </motion.div>
           </motion.div>
         ))}
-
-        <div className="absolute inset-0 flex items-center justify-center">
-          <svg className="w-full h-full" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-            <motion.circle
-              cx="100"
-              cy="100"
-              r="60"
-              fill="none"
-              stroke="rgba(111, 78, 55, 0.1)"
-              strokeWidth="1"
-              strokeDasharray="4 4"
-            />
-          </svg>
-        </div>
 
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <motion.div
