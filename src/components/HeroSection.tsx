@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, Coffee, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -56,7 +56,11 @@ export const HeroSection = () => {
       
       <div className="container px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <Coffee className="w-16 h-16 text-cream mx-auto mb-8" />
+          <img 
+            src="/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png" 
+            alt="Grano Logo" 
+            className="w-32 h-32 mx-auto mb-8"
+          />
           <h1 className="font-playfair text-3xl md:text-4xl lg:text-6xl text-cream mb-6 leading-tight">
             Join the Future of <br />Specialty Coffee
           </h1>
