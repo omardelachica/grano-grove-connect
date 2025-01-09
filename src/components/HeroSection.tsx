@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, ToggleLeft, ToggleRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
 import { motion } from "framer-motion";
+import { Toggle } from "@/components/ui/toggle";
 
 export const HeroSection = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isProducer, setIsProducer] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -20,11 +22,11 @@ export const HeroSection = () => {
       const { error, status } = await supabase.from('leads').insert({
         email,
         source: 'hero_section',
-        type: 'newsletter',
+        type: isProducer ? 'producer' : 'consumer',
         created_at: new Date().toISOString(),
         ip_address: await fetch('https://api.ipify.org?format=json').then(res => res.json()).then(data => data.ip),
         user_agent: navigator.userAgent,
-        geo_location: null, // This will be automatically populated by Supabase's edge functions
+        geo_location: null,
       });
 
       if (error) {
@@ -32,11 +34,10 @@ export const HeroSection = () => {
         throw error;
       }
 
-      // If we reach here, the insert was successful (status 201)
       if (status === 201) {
         toast({
-          title: "Welcome to Grano!",
-          description: "Thank you for joining our coffee community.",
+          title: `Welcome to Grano${isProducer ? ' Producer' : ''}!`,
+          description: `Thank you for joining our coffee ${isProducer ? 'producer' : 'lover'} community.`,
         });
         setEmail("");
       }
@@ -97,10 +98,26 @@ export const HeroSection = () => {
                 Join <ArrowRight className="ml-2 animate-pulse" />
               </Button>
             </div>
+            <div className="flex items-center justify-center gap-3 mt-4">
+              <span className="text-cream/90 text-sm">Coffee Lover</span>
+              <Toggle
+                pressed={isProducer}
+                onPressedChange={setIsProducer}
+                className="bg-forest/20 data-[state=on]:bg-forest"
+                aria-label="Toggle producer mode"
+              >
+                {isProducer ? (
+                  <ToggleRight className="h-4 w-4 text-cream" />
+                ) : (
+                  <ToggleLeft className="h-4 w-4 text-cream" />
+                )}
+              </Toggle>
+              <span className="text-cream/90 text-sm">Producer</span>
+            </div>
           </form>
 
           <p className="text-cream/70 text-sm mt-4">
-            Join our community of coffee enthusiasts, roasters, and connoisseurs.
+            Join our community of coffee {isProducer ? 'producers' : 'enthusiasts'}, roasters, and connoisseurs.
           </p>
         </div>
       </div>
