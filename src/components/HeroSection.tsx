@@ -21,7 +21,10 @@ export const HeroSection = () => {
         email,
         source: 'hero_section',
         type: 'newsletter',
-        created_at: new Date().toISOString()
+        created_at: new Date().toISOString(),
+        ip_address: await fetch('https://api.ipify.org?format=json').then(res => res.json()).then(data => data.ip),
+        user_agent: navigator.userAgent,
+        geo_location: null, // This will be automatically populated by Supabase's edge functions
       });
 
       if (error) {
