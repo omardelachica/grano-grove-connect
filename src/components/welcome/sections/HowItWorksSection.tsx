@@ -55,8 +55,8 @@ export const HowItWorksSection = () => {
                 <Coffee className="h-8 w-8 text-cream" />
               </div>
               <div>
-                <h3 className="font-playfair text-2xl text-espresso mb-2">Direct Connection</h3>
-                <p className="text-slate">No middlemen. Pure coffee passion connecting roasters and enthusiasts.</p>
+                <h3 className="font-playfair text-2xl text-espresso mb-2">Find Your Perfect Coffee</h3>
+                <p className="text-slate">Discover your ideal coffee match through our curated selection of premium beans.</p>
               </div>
             </div>
           </motion.div>
