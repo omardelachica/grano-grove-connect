@@ -55,26 +55,6 @@ export const WelcomeScreen = ({ onComplete }: Props) => {
               Connecting Roasters, Producers, and Coffee Aficionados worldwide. 
               Are you interested? Join our waiting list below.
             </p>
-            
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto animate-fadeIn" style={{ animationDelay: '0.4s' }}>
-              <button
-                onClick={() => setUserType("roaster")}
-                className="p-8 rounded-xl border-2 border-cream/20 hover:border-cream transition-colors bg-espresso/40 backdrop-blur-sm group"
-              >
-                <Coffee className="w-12 h-12 text-gold mb-4 mx-auto" />
-                <h2 className="font-playfair text-2xl text-gold mb-2">I'm a Roaster</h2>
-                <p className="text-cream/80">Join our marketplace and showcase your specialty beans</p>
-              </button>
-
-              <button
-                onClick={() => setUserType("consumer")}
-                className="p-8 rounded-xl border-2 border-cream/20 hover:border-cream transition-colors bg-espresso/40 backdrop-blur-sm group"
-              >
-                <Coffee className="w-12 h-12 text-gold mb-4 mx-auto" />
-                <h2 className="font-playfair text-2xl text-gold mb-2">I'm a Coffee Lover</h2>
-                <p className="text-cream/80">Discover and purchase exceptional coffee beans</p>
-              </button>
-            </div>
 
             <button
               onClick={() => {
