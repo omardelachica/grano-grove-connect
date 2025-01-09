@@ -17,6 +17,7 @@ export const HeroSection = () => {
 
     setIsSubmitting(true);
     try {
+      console.log('Attempting to insert lead:', { email });
       const { error } = await supabase.from('leads').insert({
         email,
         source: 'hero_section',
@@ -24,7 +25,10 @@ export const HeroSection = () => {
         created_at: new Date().toISOString()
       });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Supabase error:', error);
+        throw error;
+      }
 
       toast({
         title: "Welcome to Grano!",
@@ -33,6 +37,7 @@ export const HeroSection = () => {
       
       setEmail("");
     } catch (error) {
+      console.error('Form submission error:', error);
       toast({
         title: "Oops!",
         description: "Something went wrong. Please try again.",
