@@ -10,7 +10,7 @@ export const MarketplaceFlow = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center my-12 relative h-[400px] overflow-x-hidden w-full">
+    <div className="flex flex-col items-center justify-center relative h-screen overflow-hidden w-full">
       <div className="relative w-full max-w-md aspect-square">
         {orbitItems.map((item, index) => (
           <motion.div
