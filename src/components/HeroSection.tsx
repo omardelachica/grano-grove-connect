@@ -17,8 +17,7 @@ export const HeroSection = () => {
 
     setIsSubmitting(true);
     try {
-      console.log('Attempting to insert lead:', { email });
-      const { error } = await supabase.from('leads').insert({
+      const { error, status } = await supabase.from('leads').insert({
         email,
         source: 'hero_section',
         type: 'newsletter',
@@ -30,12 +29,14 @@ export const HeroSection = () => {
         throw error;
       }
 
-      toast({
-        title: "Welcome to Grano!",
-        description: "Thank you for joining our coffee community.",
-      });
-      
-      setEmail("");
+      // If we reach here, the insert was successful (status 201)
+      if (status === 201) {
+        toast({
+          title: "Welcome to Grano!",
+          description: "Thank you for joining our coffee community.",
+        });
+        setEmail("");
+      }
     } catch (error) {
       console.error('Form submission error:', error);
       toast({
