@@ -100,7 +100,10 @@ export const HeroSection = () => {
             </div>
             
             <div className="flex items-center justify-center gap-8 mt-6">
-              <div className={`flex items-center gap-2 transition-colors duration-200 px-4 py-2 rounded-full ${!isProducer ? 'bg-cream text-espresso font-semibold' : 'text-cream/40'}`}>
+              <div 
+                className={`flex items-center gap-2 transition-colors duration-200 px-4 py-2 rounded-full cursor-pointer ${!isProducer ? 'bg-cream text-espresso font-semibold' : 'text-cream/40'}`}
+                onClick={() => setIsProducer(false)}
+              >
                 <Coffee className="h-5 w-5" />
                 <span className="text-sm font-medium">Coffee Lover</span>
               </div>
@@ -115,7 +118,10 @@ export const HeroSection = () => {
                           data-[state=on]:before:translate-x-7"
                 aria-label="Toggle producer mode"
               />
-              <div className={`flex items-center gap-2 transition-colors duration-200 px-4 py-2 rounded-full ${isProducer ? 'bg-cream text-espresso font-semibold' : 'text-cream/40'}`}>
+              <div 
+                className={`flex items-center gap-2 transition-colors duration-200 px-4 py-2 rounded-full cursor-pointer ${isProducer ? 'bg-cream text-espresso font-semibold' : 'text-cream/40'}`}
+                onClick={() => setIsProducer(true)}
+              >
                 <Wheat className="h-5 w-5" />
                 <span className="text-sm font-medium">Producer</span>
               </div>
