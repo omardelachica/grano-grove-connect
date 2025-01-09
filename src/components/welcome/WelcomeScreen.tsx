@@ -6,6 +6,7 @@ import { RoasterForm } from "./RoasterForm";
 import { ConsumerForm } from "./ConsumerForm";
 import { HowItWorksSection } from "./sections/HowItWorksSection";
 import { BenefitsSection } from "./sections/BenefitsSection";
+import { HeroSection } from "@/components/HeroSection";
 
 type UserType = "roaster" | "consumer" | null;
 
@@ -105,6 +106,7 @@ export const WelcomeScreen = ({ onComplete }: Props) => {
         </div>
       </div>
 
+      <HeroSection />
       <HowItWorksSection />
       <BenefitsSection />
     </div>
