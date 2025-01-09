@@ -17,17 +17,11 @@ export const HeroSection = () => {
 
     setIsSubmitting(true);
     try {
-      // Get IP-based location
-      const locationResponse = await fetch('https://api.ipapi.com/api/check?access_key=YOUR_IPAPI_ACCESS_KEY');
-      const locationData = await locationResponse.json();
-      const location = `${locationData.city}, ${locationData.region_name}, ${locationData.country_name}`;
-
       const { error, status } = await supabase.from('leads').insert({
         email,
         source: 'hero_section',
         type: 'newsletter',
-        created_at: new Date().toISOString(),
-        location
+        created_at: new Date().toISOString()
       });
 
       if (error) {
