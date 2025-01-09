@@ -10,9 +10,9 @@ export const MarketplaceFlow = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center relative h-screen overflow-hidden w-full">
-      <div className="relative w-full max-w-md aspect-square">
-        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+    <div className="flex flex-col items-center justify-center h-full w-full">
+      <div className="relative w-full h-full">
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 200">
           <motion.circle
             cx="100"
             cy="100"
