@@ -70,26 +70,24 @@ export const MarketplaceFlow = () => {
           </motion.div>
         ))}
 
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <motion.div
-            className="bg-cream rounded-full p-6 border-2 border-espresso/20 shadow-lg"
-            animate={{ 
-              scale: [1, 1.05, 1],
-              rotate: [0, 5, -5, 0]
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            <img 
-              src="/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png" 
-              alt="Grano Logo" 
-              className="h-12 w-12 object-contain"
-            />
-          </motion.div>
-        </div>
+        <motion.div
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-cream rounded-full p-6 border-2 border-espresso/20 shadow-lg"
+          animate={{ 
+            scale: [1, 1.05, 1],
+            rotate: [0, 5, -5, 0]
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <img 
+            src="/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png" 
+            alt="Grano Logo" 
+            className="h-12 w-12 object-contain"
+          />
+        </motion.div>
       </div>
     </div>
   );
