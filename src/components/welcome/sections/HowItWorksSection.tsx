@@ -4,7 +4,15 @@ import { MarketplaceFlow } from '@/components/marketplace-flow';
 
 export const HowItWorksSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-cream to-white">
+    <motion.section 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true, margin: "-100px" }}
+      className="py-20 bg-gradient-to-b from-cream via-cream/50 to-white relative"
+    >
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/50 to-transparent opacity-5" />
+      
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -74,6 +82,6 @@ export const HowItWorksSection = () => {
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
