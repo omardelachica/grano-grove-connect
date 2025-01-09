@@ -100,7 +100,7 @@ export const HeroSection = () => {
             </div>
             
             <div className="flex items-center justify-center gap-8 mt-6">
-              <div className={`flex items-center gap-2 transition-colors duration-200 ${!isProducer ? 'text-cream font-semibold' : 'text-cream/40'}`}>
+              <div className={`flex items-center gap-2 transition-colors duration-200 px-4 py-2 rounded-full ${!isProducer ? 'bg-cream text-espresso font-semibold' : 'text-cream/40'}`}>
                 <Coffee className="h-5 w-5" />
                 <span className="text-sm font-medium">Coffee Lover</span>
               </div>
@@ -108,14 +108,14 @@ export const HeroSection = () => {
                 pressed={isProducer}
                 onPressedChange={setIsProducer}
                 className="relative w-14 h-7 rounded-full transition-colors duration-200 ease-in-out
-                          bg-cream/20 data-[state=on]:bg-[#9b87f5]
+                          bg-cream/20 data-[state=on]:bg-cream
                           before:content-[''] before:absolute before:top-0.5 before:left-0.5
-                          before:w-6 before:h-6 before:bg-cream before:rounded-full
+                          before:w-6 before:h-6 before:bg-espresso before:rounded-full
                           before:transition-transform before:duration-200 before:ease-in-out
                           data-[state=on]:before:translate-x-7"
                 aria-label="Toggle producer mode"
               />
-              <div className={`flex items-center gap-2 transition-colors duration-200 ${isProducer ? 'text-cream font-semibold' : 'text-cream/40'}`}>
+              <div className={`flex items-center gap-2 transition-colors duration-200 px-4 py-2 rounded-full ${isProducer ? 'bg-cream text-espresso font-semibold' : 'text-cream/40'}`}>
                 <Wheat className="h-5 w-5" />
                 <span className="text-sm font-medium">Producer</span>
               </div>
