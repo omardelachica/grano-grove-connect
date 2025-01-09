@@ -7,7 +7,6 @@ import { ConsumerForm } from "./ConsumerForm";
 import { HowItWorksSection } from "./sections/HowItWorksSection";
 import { BenefitsSection } from "./sections/BenefitsSection";
 import { HeroSection } from "@/components/HeroSection";
-import { Footer } from "@/components/Footer";
 
 type UserType = "roaster" | "consumer" | null;
 
@@ -31,7 +30,6 @@ export const WelcomeScreen = ({ onComplete }: Props) => {
       <HeroSection />
       <HowItWorksSection />
       <BenefitsSection />
-      <Footer />
     </div>
   );
 };
