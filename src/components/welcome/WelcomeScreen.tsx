@@ -27,51 +27,6 @@ export const WelcomeScreen = ({ onComplete }: Props) => {
 
   return (
     <div className="min-h-screen bg-white">
-      <div 
-        className="relative min-h-[80vh] flex items-center w-full"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(https://images.unsplash.com/photo-1447933601403-0c6688de566e)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      >
-        <div className="container px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <img 
-              src="/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png" 
-              alt="Grano Logo" 
-              className="h-32 mx-auto mb-8"
-            />
-            <h1 className="font-playfair text-4xl md:text-6xl text-cream mb-8 animate-fadeIn">
-              Building A Global Coffee Community
-            </h1>
-            <p className="text-cream/90 mb-12 max-w-2xl mx-auto text-lg md:text-xl animate-fadeIn" style={{ animationDelay: '0.2s' }}>
-              Connecting Roasters, Producers, and Coffee Aficionados worldwide. 
-              Are you interested? Join our waiting list below.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 1, y: [0, 10, 0] }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute bottom-8 left-0 right-0 text-center"
-          >
-            <p className="text-cream/80 mb-2 text-sm">Discover more about Grano</p>
-          </motion.div>
-        </div>
-      </div>
-
       <HeroSection />
       <HowItWorksSection />
       <BenefitsSection />
