@@ -36,9 +36,9 @@ export const HowItWorksSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="w-full max-w-3xl mx-auto"
+            className="w-full max-w-xl mx-auto" // Changed from max-w-3xl to max-w-xl
           >
-            <div className="bg-gradient-to-br from-cream to-white rounded-2xl p-8 shadow-lg border border-espresso/10">
+            <div className="bg-gradient-to-br from-cream to-white rounded-2xl p-4 shadow-lg border border-espresso/10"> // Changed p-8 to p-4
               <MarketplaceFlow />
             </div>
           </motion.div>
