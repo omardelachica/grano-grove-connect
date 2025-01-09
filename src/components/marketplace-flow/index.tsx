@@ -62,16 +62,16 @@ export const MarketplaceFlow = () => {
                 delay: item.delay,
               }}
             >
-              <div className="bg-cream p-4 rounded-full inline-flex items-center justify-center mb-2">
-                <item.icon className="h-8 w-8 text-espresso" />
+              <div className="bg-cream p-3 rounded-full inline-flex items-center justify-center mb-2">
+                <item.icon className="h-6 w-6 text-espresso" />
               </div>
-              <h3 className="text-xl font-semibold text-espresso">{item.label}</h3>
+              <h3 className="text-lg font-semibold text-espresso">{item.label}</h3>
             </motion.div>
           </motion.div>
         ))}
 
         <motion.div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-cream rounded-full p-6 border-2 border-espresso/20 shadow-lg"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-cream rounded-full p-4 border-2 border-espresso/20 shadow-lg"
           animate={{ 
             scale: [1, 1.05, 1],
             rotate: [0, 5, -5, 0]
@@ -85,7 +85,7 @@ export const MarketplaceFlow = () => {
           <img 
             src="/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png" 
             alt="Grano Logo" 
-            className="h-12 w-12 object-contain"
+            className="h-10 w-10 object-contain"
           />
         </motion.div>
       </div>
