@@ -30,13 +30,25 @@ export const HowItWorksSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col gap-16">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="w-full max-w-3xl mx-auto"
+          >
+            <div className="bg-gradient-to-br from-cream to-white rounded-2xl p-8 shadow-lg border border-espresso/10">
+              <MarketplaceFlow />
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8 max-w-3xl mx-auto"
           >
             <div className="flex gap-6 items-start group hover:bg-cream/50 p-4 rounded-xl transition-all">
               <div className="bg-espresso p-4 rounded-xl group-hover:scale-110 transition-transform">
@@ -66,18 +78,6 @@ export const HowItWorksSection = () => {
                 <h3 className="font-playfair text-2xl text-espresso mb-2">Find Your Perfect Coffee</h3>
                 <p className="text-slate">Discover your ideal coffee match through our curated selection of premium beans.</p>
               </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="bg-gradient-to-br from-cream to-white rounded-2xl p-8 shadow-lg border border-espresso/10">
-              <MarketplaceFlow />
             </div>
           </motion.div>
         </div>
