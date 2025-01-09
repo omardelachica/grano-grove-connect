@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, ChevronDown, ToggleLeft, ToggleRight, Coffee, Wheat } from "lucide-react";
+import { ArrowRight, ChevronDown, Coffee, Wheat } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -106,17 +106,14 @@ export const HeroSection = () => {
               <Toggle
                 pressed={isProducer}
                 onPressedChange={setIsProducer}
-                className="bg-forest/20 data-[state=on]:bg-forest w-14 h-7"
+                className="relative w-14 h-7 rounded-full transition-colors duration-200 ease-in-out
+                          bg-cream/20 data-[state=on]:bg-teal
+                          before:content-[''] before:absolute before:top-0.5 before:left-0.5
+                          before:w-6 before:h-6 before:bg-cream before:rounded-full
+                          before:transition-transform before:duration-200 before:ease-in-out
+                          data-[state=on]:before:translate-x-7"
                 aria-label="Toggle producer mode"
-              >
-                <div className="w-full h-full flex items-center justify-center">
-                  {isProducer ? (
-                    <ToggleRight className="h-5 w-5 text-cream" />
-                  ) : (
-                    <ToggleLeft className="h-5 w-5 text-cream" />
-                  )}
-                </div>
-              </Toggle>
+              />
               <div className={`flex items-center gap-2 ${isProducer ? 'text-cream' : 'text-cream/50'}`}>
                 <Wheat className="h-5 w-5" />
                 <span className="text-sm font-medium">Producer</span>
