@@ -36,7 +36,7 @@ export const WelcomeScreen = ({ onComplete }: Props) => {
           backgroundAttachment: 'fixed'
         }}
       >
-        <div className="container mx-auto px-4 py-32 md:py-48 relative z-10">
+        <div className="container px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
