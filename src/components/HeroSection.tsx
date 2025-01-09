@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
+import { motion } from "framer-motion";
 
 export const HeroSection = () => {
   const [email, setEmail] = useState("");
@@ -43,9 +44,9 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-[80vh] relative flex items-center justify-center">
+    <section className="h-screen relative flex items-center justify-center overflow-hidden">
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 w-full h-full"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(https://images.unsplash.com/photo-1447933601403-0c6688de566e)`,
           backgroundSize: 'cover',
@@ -94,6 +95,19 @@ export const HeroSection = () => {
           </p>
         </div>
       </div>
+
+      <motion.div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 cursor-pointer"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ 
+          duration: 1,
+          repeat: Infinity,
+          repeatType: "reverse"
+        }}
+      >
+        <ChevronDown className="w-8 h-8 text-cream/80" />
+      </motion.div>
     </section>
   );
 };
