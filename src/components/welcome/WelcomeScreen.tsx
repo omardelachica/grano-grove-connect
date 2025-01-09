@@ -55,15 +55,6 @@ export const WelcomeScreen = ({ onComplete }: Props) => {
               Connecting Roasters, Producers, and Coffee Aficionados worldwide. 
               Are you interested? Join our waiting list below.
             </p>
-
-            <button
-              onClick={() => {
-                if (onComplete) onComplete();
-              }}
-              className="mt-8 text-cream/60 hover:text-cream text-sm block mx-auto"
-            >
-              Skip for now
-            </button>
           </motion.div>
 
           <motion.div 
