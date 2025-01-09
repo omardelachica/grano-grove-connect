@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Coffee, ChevronDown, ArrowRight } from "lucide-react";
+import { Coffee, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/lib/supabase";
 import { RoasterForm } from "./RoasterForm";
 import { ConsumerForm } from "./ConsumerForm";
 import { HowItWorksSection } from "./sections/HowItWorksSection";
@@ -19,41 +16,6 @@ type Props = {
 
 export const WelcomeScreen = ({ onComplete }: Props) => {
   const [userType, setUserType] = useState<UserType>(null);
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-
-    setIsSubmitting(true);
-    try {
-      const { error } = await supabase.from('leads').insert({
-        email,
-        source: 'welcome_hero',
-        type: 'newsletter',
-        created_at: new Date().toISOString()
-      });
-
-      if (error) throw error;
-
-      toast({
-        title: "Welcome to Grano!",
-        description: "Thank you for joining our coffee community.",
-      });
-      
-      setEmail("");
-    } catch (error) {
-      toast({
-        title: "Oops!",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   if (userType) {
     return (
@@ -94,25 +56,25 @@ export const WelcomeScreen = ({ onComplete }: Props) => {
               Are you interested? Join our waiting list below.
             </p>
             
-            <form onSubmit={handleSubmit} className="max-w-md mx-auto animate-fadeIn" style={{ animationDelay: '0.4s' }}>
-              <div className="flex gap-2">
-                <Input 
-                  type="email" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email..." 
-                  className="h-12 bg-white/90 border-cream/20 focus:border-cream text-base"
-                  required
-                />
-                <Button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="bg-cream text-espresso hover:bg-cream/90 h-12 px-6"
-                >
-                  Join <ArrowRight className="ml-2" />
-                </Button>
-              </div>
-            </form>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto animate-fadeIn" style={{ animationDelay: '0.4s' }}>
+              <button
+                onClick={() => setUserType("roaster")}
+                className="p-8 rounded-xl border-2 border-cream/20 hover:border-cream transition-colors bg-espresso/40 backdrop-blur-sm group"
+              >
+                <Coffee className="w-12 h-12 text-gold mb-4 mx-auto" />
+                <h2 className="font-playfair text-2xl text-gold mb-2">I'm a Roaster</h2>
+                <p className="text-cream/80">Join our marketplace and showcase your specialty beans</p>
+              </button>
+
+              <button
+                onClick={() => setUserType("consumer")}
+                className="p-8 rounded-xl border-2 border-cream/20 hover:border-cream transition-colors bg-espresso/40 backdrop-blur-sm group"
+              >
+                <Coffee className="w-12 h-12 text-gold mb-4 mx-auto" />
+                <h2 className="font-playfair text-2xl text-gold mb-2">I'm a Coffee Lover</h2>
+                <p className="text-cream/80">Discover and purchase exceptional coffee beans</p>
+              </button>
+            </div>
 
             <button
               onClick={() => {
