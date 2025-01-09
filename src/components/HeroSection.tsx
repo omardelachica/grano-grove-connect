@@ -98,8 +98,9 @@ export const HeroSection = () => {
                 Join <ArrowRight className="ml-2 animate-pulse" />
               </Button>
             </div>
+            
             <div className="flex items-center justify-center gap-8 mt-6">
-              <div className={`flex items-center gap-2 ${!isProducer ? 'text-cream' : 'text-cream/50'}`}>
+              <div className={`flex items-center gap-2 transition-colors duration-200 ${!isProducer ? 'text-cream font-semibold' : 'text-cream/40'}`}>
                 <Coffee className="h-5 w-5" />
                 <span className="text-sm font-medium">Coffee Lover</span>
               </div>
@@ -107,14 +108,14 @@ export const HeroSection = () => {
                 pressed={isProducer}
                 onPressedChange={setIsProducer}
                 className="relative w-14 h-7 rounded-full transition-colors duration-200 ease-in-out
-                          bg-cream/20 data-[state=on]:bg-teal
+                          bg-cream/20 data-[state=on]:bg-[#9b87f5]
                           before:content-[''] before:absolute before:top-0.5 before:left-0.5
                           before:w-6 before:h-6 before:bg-cream before:rounded-full
                           before:transition-transform before:duration-200 before:ease-in-out
                           data-[state=on]:before:translate-x-7"
                 aria-label="Toggle producer mode"
               />
-              <div className={`flex items-center gap-2 ${isProducer ? 'text-cream' : 'text-cream/50'}`}>
+              <div className={`flex items-center gap-2 transition-colors duration-200 ${isProducer ? 'text-cream font-semibold' : 'text-cream/40'}`}>
                 <Wheat className="h-5 w-5" />
                 <span className="text-sm font-medium">Producer</span>
               </div>
