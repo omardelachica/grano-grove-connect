@@ -55,35 +55,16 @@ export const HeroSection = () => {
 
   return (
     <section className="h-screen relative flex items-center justify-center overflow-hidden">
-      {/* Arc Design with Coffee Images */}
-      <div className="absolute inset-0 w-full h-full">
-        <div className="absolute top-0 left-0 w-1/3 h-2/3">
-          <img
-            src="https://images.unsplash.com/photo-1447933601403-0c6688de566e"
-            alt="Coffee Beans"
-            className="w-full h-full object-cover rounded-br-[200px]"
-          />
-          <div className="absolute inset-0 bg-black/50 rounded-br-[200px]" />
-        </div>
-        <div className="absolute top-0 right-0 w-1/3 h-2/3">
-          <img
-            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"
-            alt="Coffee Cup"
-            className="w-full h-full object-cover rounded-bl-[200px]"
-          />
-          <div className="absolute inset-0 bg-black/50 rounded-bl-[200px]" />
-        </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2">
-          <img
-            src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd"
-            alt="Coffee Plantation"
-            className="w-full h-full object-cover rounded-t-[200px]"
-          />
-          <div className="absolute inset-0 bg-black/50 rounded-t-[200px]" />
-        </div>
-      </div>
+      <div 
+        className="absolute inset-0 z-0 w-full h-full"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(https://images.unsplash.com/photo-1447933601403-0c6688de566e)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      />
       
-      {/* Centered Content */}
       <div className="container px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <img 
