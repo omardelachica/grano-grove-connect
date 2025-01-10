@@ -8,16 +8,7 @@ interface ImageCarouselProps {
 
 const ImageCarousel = ({ images, children }: ImageCarouselProps) => {
   return (
-    <div 
-      className="relative h-[600px] w-screen overflow-hidden flex items-center justify-center"
-      style={{
-        backgroundImage: 'url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=3456&auto=format)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
-      <div className="absolute inset-0 bg-black/60" />
+    <div className="relative h-[600px] w-screen overflow-hidden flex items-center justify-center">
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         {children}
       </div>

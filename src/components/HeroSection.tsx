@@ -17,7 +17,16 @@ const coffeeImages = [
 
 export const HeroSection = () => {
   return (
-    <section className="h-[90vh] relative flex flex-col items-center justify-start overflow-hidden">
+    <section 
+      className="h-[90vh] relative flex flex-col items-center justify-start overflow-hidden"
+      style={{
+        backgroundImage: 'url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=3456&auto=format)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <div className="absolute inset-0 bg-black/60" />
       <ImageCarousel images={coffeeImages}>
         <HeroContent />
       </ImageCarousel>
