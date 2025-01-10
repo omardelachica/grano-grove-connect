@@ -68,18 +68,17 @@ export const HeroSection = () => {
 
   return (
     <section className="min-h-screen relative flex flex-col items-center justify-start overflow-hidden">
-
       <ImageCarousel images={coffeeImages}>
-        <div className="max-w-5xl mx-auto text-center bg-black/40 backdrop-blur-sm p-8 rounded-xl z-10">
+        <div className="max-w-7xl w-full mx-auto text-center bg-black/40 backdrop-blur-sm px-12 py-6 rounded-xl z-10">
           <img 
             src="/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png" 
             alt="Grano Logo" 
-            className="w-32 h-32 mx-auto mb-8"
+            className="w-24 h-24 mx-auto mb-6"
           />
-          <h1 className="font-playfair text-3xl md:text-4xl lg:text-6xl text-cream mb-6 leading-tight">
+          <h1 className="font-playfair text-3xl md:text-4xl lg:text-6xl text-cream mb-4 leading-tight">
             Join the Future of <br />Specialty Coffee
           </h1>
-          <p className="text-cream/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+          <p className="text-cream/90 text-lg md:text-xl mb-6 max-w-3xl mx-auto">
             Connect with artisanal roasters, explore unique beans, and embark on a journey 
             of exceptional coffee experiences.
           </p>
@@ -103,7 +102,7 @@ export const HeroSection = () => {
               </Button>
             </div>
             
-            <div className="flex items-center justify-center gap-8 mt-6">
+            <div className="flex items-center justify-center gap-8 mt-4">
               <div 
                 className={`flex items-center gap-2 transition-colors duration-200 px-4 py-2 rounded-full cursor-pointer ${!isProducer ? 'bg-cream text-espresso font-semibold' : 'text-cream/40'}`}
                 onClick={() => setIsProducer(false)}
