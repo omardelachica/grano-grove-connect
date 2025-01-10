@@ -50,7 +50,7 @@ export const HeroContent = () => {
   };
 
   return (
-    <div className="max-w-[91rem] w-full mx-auto text-center bg-black/40 backdrop-blur-sm px-8 py-4 rounded-xl z-10 mt-24">
+    <div className="max-w-[91rem] w-full mx-auto text-center bg-black/40 backdrop-blur-sm px-8 py-4 rounded-xl z-10 mt-16">
       <h1 className="font-playfair text-3xl md:text-4xl lg:text-6xl text-cream mb-4 leading-tight">
         Join the Future of <br />Specialty Coffee
       </h1>
