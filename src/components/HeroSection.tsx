@@ -18,7 +18,7 @@ const coffeeImages = [
 export const HeroSection = () => {
   return (
     <section 
-      className="h-[90vh] relative flex flex-col items-center justify-start overflow-hidden"
+      className="h-[90vh] relative flex flex-col items-center justify-center overflow-hidden"
       style={{
         backgroundImage: 'url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=3456&auto=format)',
         backgroundSize: 'cover',
@@ -26,10 +26,13 @@ export const HeroSection = () => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="absolute inset-0 bg-black/60" />
-      <ImageCarousel images={coffeeImages}>
-        <HeroContent />
-      </ImageCarousel>
+      <div className="absolute inset-0 flex items-center justify-center bg-black/60">
+        <div className="relative w-full">
+          <ImageCarousel images={coffeeImages}>
+            <HeroContent />
+          </ImageCarousel>
+        </div>
+      </div>
 
       <motion.div 
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 cursor-pointer"
