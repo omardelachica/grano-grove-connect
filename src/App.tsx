@@ -1,4 +1,5 @@
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Footer } from './components/Footer';
 import { Toaster } from './components/ui/toaster';
 import { AppRoutes } from './components/routing/AppRoutes';
 
@@ -12,6 +13,7 @@ function App() {
             onWelcomeComplete={() => {}}
           />
         </main>
+        <Footer />
       </div>
       <Toaster />
     </Router>
