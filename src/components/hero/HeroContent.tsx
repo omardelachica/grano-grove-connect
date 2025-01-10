@@ -50,10 +50,11 @@ export const HeroContent = () => {
   };
 
   return (
-    <div className="max-w-[91rem] w-full mx-auto text-center bg-black/40 backdrop-blur-sm px-8 py-4 rounded-xl z-10 mt-16">
+    <div className="max-w-[91rem] w-full mx-auto text-center bg-black/40 backdrop-blur-sm px-8 py-4 rounded-xl z-10 mt-8">
       <h1 className="font-playfair text-3xl md:text-4xl lg:text-6xl text-cream mb-4 leading-tight">
         Join the Future of <br />Specialty Coffee
       </h1>
+      
       <p className="text-cream/90 text-lg md:text-xl mb-6 max-w-3xl mx-auto">
         Connect with artisanal roasters, explore unique beans, and embark on a journey 
         of exceptional coffee experiences.
