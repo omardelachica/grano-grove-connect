@@ -69,7 +69,7 @@ export const HeroSection = () => {
   return (
     <section className="min-h-screen relative flex flex-col items-center justify-start overflow-hidden">
       <ImageCarousel images={coffeeImages}>
-        <div className="max-w-7xl w-full mx-auto text-center bg-black/40 backdrop-blur-sm px-12 py-6 rounded-xl z-10">
+        <div className="max-w-[91rem] w-full mx-auto text-center bg-black/40 backdrop-blur-sm px-8 py-4 rounded-xl z-10">
           <h1 className="font-playfair text-3xl md:text-4xl lg:text-6xl text-cream mb-4 leading-tight">
             Join the Future of <br />Specialty Coffee
           </h1>
