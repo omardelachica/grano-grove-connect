@@ -79,7 +79,7 @@ export const HeroSection = () => {
       />
       
       <ImageCarousel images={coffeeImages}>
-        <div className="max-w-3xl mx-auto text-center bg-black/40 backdrop-blur-sm p-8 rounded-xl">
+        <div className="max-w-5xl mx-auto text-center bg-black/40 backdrop-blur-sm p-8 rounded-xl">
           <img 
             src="/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png" 
             alt="Grano Logo" 
@@ -163,3 +163,4 @@ export const HeroSection = () => {
     </section>
   );
 };
+
