@@ -16,8 +16,8 @@ const ImageCarousel = ({ images, children }: ImageCarouselProps) => {
   
   return (
     <div className="relative w-screen overflow-hidden flex items-center justify-center">
-      <div className={`h-[400px] sm:h-[600px] ${isMobile ? 'pt-12' : 'pt-24'}`}>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
+      <div className={`relative h-[400px] sm:h-[600px] ${isMobile ? 'pt-12' : 'pt-24'}`}>
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
           {children}
         </div>
         {images.map((image, index) => {
@@ -25,9 +25,8 @@ const ImageCarousel = ({ images, children }: ImageCarouselProps) => {
           const angleRange = Math.PI;
           const angle = angleRange - (angleRange / (totalImages - 1)) * index;
           
-          const radius = baseRadius;
-          const x = Math.cos(angle) * radius;
-          const y = -Math.sin(angle) * radius * (isMobile ? 0.35 : 0.45);
+          const x = Math.cos(angle) * baseRadius;
+          const y = Math.sin(angle) * baseRadius * (isMobile ? 0.35 : 0.45);
           
           let outwardRotation;
           if (index === 0) outwardRotation = -55;
