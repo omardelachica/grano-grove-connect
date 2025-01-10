@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
 import { motion } from "framer-motion";
 import { Toggle } from "@/components/ui/toggle";
-import { ImageCarousel } from "./ImageCarousel";
+import ImageCarousel from "./ImageCarousel";
 
 const coffeeImages = [
   { src: "https://images.unsplash.com/photo-1447933601403-0c6688de566e", alt: "Coffee beans close-up" },
