@@ -40,9 +40,6 @@ const ImageCarousel = ({ images, children }: ImageCarouselProps) => {
           return 1.05;
         })();
 
-        // Calculate a different animation delay for each image
-        const animationDelay = `${index * 0.2}s`;
-
         return (
           <ImageTile
             key={index}
@@ -50,12 +47,11 @@ const ImageCarousel = ({ images, children }: ImageCarouselProps) => {
             alt={image.alt}
             isLogo={image.isLogo}
             rotation={outwardRotation + 90}
-            className="absolute transition-all duration-500 hover:scale-110 cursor-pointer w-32 h-24 animate-float"
+            className="absolute transition-all duration-500 hover:scale-110 cursor-pointer w-32 h-24"
             style={{
               transform: `translate(${x}px, ${y}px) rotate(${outwardRotation + 90}deg) scale(${scale})`,
               transformOrigin: 'center',
               zIndex: 20 + (index === 4 ? totalImages : index),
-              animationDelay,
             }}
           />
         );
