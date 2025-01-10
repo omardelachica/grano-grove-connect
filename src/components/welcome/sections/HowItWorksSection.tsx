@@ -21,7 +21,7 @@ export const HowItWorksSection = () => {
           className="text-center mb-16"
         >
           <h2 className="font-playfair text-4xl md:text-5xl text-espresso mb-6">
-            What is Grano and How Does it Work?
+            What is Grano and&nbsp;How Does it Work?
           </h2>
           <p className="text-slate max-w-2xl mx-auto text-lg">
             A revolutionary platform connecting coffee roasters directly with coffee enthusiasts,
