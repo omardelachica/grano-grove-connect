@@ -9,6 +9,9 @@ interface ImageCarouselProps {
 const ImageCarousel = ({ images, children }: ImageCarouselProps) => {
   return (
     <div className="relative h-[700px] mb-16 overflow-hidden mx-auto w-full flex items-center justify-center">
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        {children}
+      </div>
       {images.map((image, index) => {
         const totalImages = images.length;
         const angleRange = Math.PI;
@@ -47,14 +50,11 @@ const ImageCarousel = ({ images, children }: ImageCarouselProps) => {
             style={{
               transform: `translate(${x}px, ${y}px) rotate(${finalRotation}deg) scale(${scale})`,
               transformOrigin: 'center',
-              zIndex: index === 4 ? totalImages : index,
+              zIndex: 20 + (index === 4 ? totalImages : index),
             }}
           />
         );
       })}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
-        {children}
-      </div>
     </div>
   );
 };

@@ -68,18 +68,9 @@ export const HeroSection = () => {
 
   return (
     <section className="min-h-screen relative flex flex-col items-center justify-start overflow-hidden">
-      <div 
-        className="absolute inset-0 z-0 w-full h-full"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(https://images.unsplash.com/photo-1447933601403-0c6688de566e)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      />
-      
+
       <ImageCarousel images={coffeeImages}>
-        <div className="max-w-5xl mx-auto text-center bg-black/40 backdrop-blur-sm p-8 rounded-xl">
+        <div className="max-w-5xl mx-auto text-center bg-black/40 backdrop-blur-sm p-8 rounded-xl z-10">
           <img 
             src="/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png" 
             alt="Grano Logo" 
@@ -163,4 +154,3 @@ export const HeroSection = () => {
     </section>
   );
 };
-
