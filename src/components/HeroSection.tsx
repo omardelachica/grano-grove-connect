@@ -9,7 +9,7 @@ const coffeeImages = [
   { src: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=3456&auto=format&fit=crop&ar=4:3", alt: "Coffee roasting process" },
   { src: "https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?q=80&w=2940&auto=format&fit=crop&ar=4:3", alt: "Sustainable coffee farm" },
   { src: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=2940&auto=format&fit=crop&ar=4:3", alt: "Coffee plantation at sunrise" },
-  { src: "/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png", alt: "Grano's Logo", isLogo: true },
+  { src: "/lovable-uploads/a5c6a898-0ae3-4750-837f-1858fba060bc.png", alt: "Grano's Vertical Logo", isLogo: true },
   { src: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2940&auto=format&fit=crop&ar=4:3", alt: "Coffee beans drying" },
   { src: "https://images.unsplash.com/photo-1559496417-e7f25cb247f3?q=80&w=2940&auto=format&fit=crop&ar=4:3", alt: "Coffee roasting facility" },
   { src: "https://images.unsplash.com/photo-1516407658012-d7428736e4ac?q=80&w=2940&auto=format&fit=crop&ar=4:3", alt: "Coffee farm worker" },
