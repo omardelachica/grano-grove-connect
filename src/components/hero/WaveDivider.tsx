@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Coffee } from "lucide-react";
 
 export const WaveDivider = () => {
   const beans = Array.from({ length: 12 }, (_, i) => i);
@@ -24,7 +23,10 @@ export const WaveDivider = () => {
             }}
             className="text-cream/30"
           >
-            <Coffee size={24} />
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z"/>
+              <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/>
+            </svg>
           </motion.div>
         ))}
       </div>
