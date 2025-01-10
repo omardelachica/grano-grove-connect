@@ -2,7 +2,7 @@ import ImageTile from "./ImageTile";
 import { ReactNode } from "react";
 
 interface ImageCarouselProps {
-  images: Array<{ src: string; alt: string }>;
+  images: Array<{ src: string; alt: string; isLogo?: boolean }>;
   children?: ReactNode;
 }
 
@@ -17,7 +17,7 @@ const ImageCarousel = ({ images, children }: ImageCarouselProps) => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="absolute inset-0 bg-black/60" /> {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/60" />
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         {children}
       </div>
@@ -54,6 +54,7 @@ const ImageCarousel = ({ images, children }: ImageCarouselProps) => {
             key={index}
             src={image.src}
             alt={image.alt}
+            isLogo={image.isLogo}
             rotation={finalRotation}
             className="absolute transition-all duration-500 hover:scale-110 cursor-pointer w-32 h-24"
             style={{

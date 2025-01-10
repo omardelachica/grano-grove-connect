@@ -9,15 +9,15 @@ import { Toggle } from "@/components/ui/toggle";
 import ImageCarousel from "./ImageCarousel";
 
 const coffeeImages = [
-  { src: "/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png", alt: "Grano's Logo" }, // Logo at 12 o'clock
-  { src: "https://images.unsplash.com/photo-1524350876685-274059332603", alt: "Coffee plantation with workers harvesting" },
-  { src: "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0", alt: "Coffee roasting machine in action" },
-  { src: "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe", alt: "Coffee farmer sorting beans" },
-  { src: "https://images.unsplash.com/photo-1520903304654-28bd223f96d7", alt: "Professional coffee roaster at work" },
-  { src: "https://images.unsplash.com/photo-1599639668273-eaa1e1ba0001", alt: "Coffee plantation landscape" },
-  { src: "https://images.unsplash.com/photo-1621984643811-ba0e5124a0cf", alt: "Coffee cherries on branch" },
-  { src: "https://images.unsplash.com/photo-1591982311839-a174e4c4b682", alt: "Coffee processing facility" },
-  { src: "https://images.unsplash.com/photo-1628336707631-68c1582b4c84", alt: "Coffee farm workers" },
+  { src: "/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png", alt: "Grano's Logo", isLogo: true }, // Logo at 12 o'clock
+  { src: "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0", alt: "Professional coffee roasting process" },
+  { src: "https://images.unsplash.com/photo-1520903304654-28bd223f96d7", alt: "Sustainable coffee roasting facility" },
+  { src: "https://images.unsplash.com/photo-1591982311839-a174e4c4b682", alt: "Eco-friendly coffee processing" },
+  { src: "https://images.unsplash.com/photo-1599639668273-eaa1e1ba0001", alt: "Organic coffee plantation" },
+  { src: "https://images.unsplash.com/photo-1621984643811-ba0e5124a0cf", alt: "Coffee cherries in sustainable farm" },
+  { src: "https://images.unsplash.com/photo-1628336707631-68c1582b4c84", alt: "Fair trade coffee workers" },
+  { src: "https://images.unsplash.com/photo-1524350876685-274059332603", alt: "Coffee plantation sustainability" },
+  { src: "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe", alt: "Eco-conscious coffee processing" },
 ];
 
 export const HeroSection = () => {
