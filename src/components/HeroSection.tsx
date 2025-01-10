@@ -55,22 +55,31 @@ export const HeroSection = () => {
 
   return (
     <section className="h-screen relative flex items-center justify-center overflow-hidden">
-      {/* Arc Design */}
+      {/* Arc Design with Coffee Images */}
       <div className="absolute inset-0 w-full h-full">
-        <div className="absolute inset-0 overflow-hidden">
-          <div 
-            className="absolute w-[200%] aspect-[2/1] -top-1/2 left-1/2 -translate-x-1/2"
-            style={{
-              background: `
-                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url(https://images.unsplash.com/photo-1447933601403-0c6688de566e)
-              `,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              borderRadius: '0 0 50% 50%',
-              transform: 'translateX(-50%)',
-            }}
+        <div className="absolute top-0 left-0 w-1/3 h-2/3">
+          <img
+            src="https://images.unsplash.com/photo-1447933601403-0c6688de566e"
+            alt="Coffee Beans"
+            className="w-full h-full object-cover rounded-br-[200px]"
           />
+          <div className="absolute inset-0 bg-black/50 rounded-br-[200px]" />
+        </div>
+        <div className="absolute top-0 right-0 w-1/3 h-2/3">
+          <img
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"
+            alt="Coffee Cup"
+            className="w-full h-full object-cover rounded-bl-[200px]"
+          />
+          <div className="absolute inset-0 bg-black/50 rounded-bl-[200px]" />
+        </div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2">
+          <img
+            src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd"
+            alt="Coffee Plantation"
+            className="w-full h-full object-cover rounded-t-[200px]"
+          />
+          <div className="absolute inset-0 bg-black/50 rounded-t-[200px]" />
         </div>
       </div>
       
