@@ -70,11 +70,6 @@ export const HeroSection = () => {
     <section className="min-h-screen relative flex flex-col items-center justify-start overflow-hidden">
       <ImageCarousel images={coffeeImages}>
         <div className="max-w-7xl w-full mx-auto text-center bg-black/40 backdrop-blur-sm px-12 py-6 rounded-xl z-10">
-          <img 
-            src="/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png" 
-            alt="Grano Logo" 
-            className="w-24 h-24 mx-auto mb-6"
-          />
           <h1 className="font-playfair text-3xl md:text-4xl lg:text-6xl text-cream mb-4 leading-tight">
             Join the Future of <br />Specialty Coffee
           </h1>

@@ -9,7 +9,7 @@ interface ImageCarouselProps {
 const ImageCarousel = ({ images, children }: ImageCarouselProps) => {
   return (
     <div 
-      className="relative h-[700px] mb-16 overflow-hidden mx-auto w-full flex items-center justify-center"
+      className="relative h-[700px] mb-16 w-screen overflow-hidden flex items-center justify-center"
       style={{
         backgroundImage: 'url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=3456&auto=format)',
         backgroundSize: 'cover',
