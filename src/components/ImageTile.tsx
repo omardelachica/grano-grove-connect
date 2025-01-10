@@ -14,7 +14,7 @@ const ImageTile = ({ src, alt, className, rotation = 0, style, isLogo = false }:
   return (
     <div
       className={cn(
-        "relative w-24 h-20 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500",
+        "relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500",
         className
       )}
       style={{ 
