@@ -8,7 +8,7 @@ interface ImageCarouselProps {
 
 const ImageCarousel = ({ images, children }: ImageCarouselProps) => {
   return (
-    <div className="relative h-[600px] w-full overflow-hidden flex items-center justify-center">
+    <div className="absolute inset-0 w-full h-full flex items-center justify-center">
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
         {children}
       </div>
