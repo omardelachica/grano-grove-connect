@@ -17,7 +17,7 @@ const coffeeImages = [
 
 export const HeroSection = () => {
   return (
-    <section className="min-h-screen relative flex flex-col items-center justify-start overflow-hidden">
+    <section className="h-[90vh] relative flex flex-col items-center justify-start overflow-hidden">
       <ImageCarousel images={coffeeImages}>
         <HeroContent />
       </ImageCarousel>
