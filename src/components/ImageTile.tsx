@@ -18,7 +18,7 @@ const ImageTile = ({ src, alt, className, rotation = 0, style, isLogo = false }:
         className
       )}
       style={{ 
-        transform: `rotate(${isLogo ? rotation + 90 : rotation + 180}deg)`, 
+        transform: `rotate(${isLogo ? rotation : rotation + 90}deg)`, 
         ...style 
       }}
     >
