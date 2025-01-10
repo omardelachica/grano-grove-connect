@@ -9,15 +9,15 @@ import { Toggle } from "@/components/ui/toggle";
 import ImageCarousel from "./ImageCarousel";
 
 const coffeeImages = [
-  { src: "https://images.unsplash.com/photo-1447933601403-0c6688de566e", alt: "Coffee beans close-up" },
-  { src: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085", alt: "Coffee cup on wooden table" },
-  { src: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb", alt: "Latte art" },
-  { src: "https://images.unsplash.com/photo-1442512595331-e89e73853f31", alt: "Coffee plantation" },
-  { src: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd", alt: "Coffee roasting" },
-  { src: "https://images.unsplash.com/photo-1498804103079-a6351b050096", alt: "Coffee pouring" },
-  { src: "https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb", alt: "Coffee grinding" },
-  { src: "https://images.unsplash.com/photo-1521302080334-4bebac2763a6", alt: "Coffee shop" },
-  { src: "https://images.unsplash.com/photo-1459755486867-b55449bb39ff", alt: "Coffee preparation" },
+  { src: "/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png", alt: "Grano's Logo" }, // Logo at 12 o'clock
+  { src: "https://images.unsplash.com/photo-1524350876685-274059332603", alt: "Coffee plantation with workers harvesting" },
+  { src: "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0", alt: "Coffee roasting machine in action" },
+  { src: "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe", alt: "Coffee farmer sorting beans" },
+  { src: "https://images.unsplash.com/photo-1520903304654-28bd223f96d7", alt: "Professional coffee roaster at work" },
+  { src: "https://images.unsplash.com/photo-1599639668273-eaa1e1ba0001", alt: "Coffee plantation landscape" },
+  { src: "https://images.unsplash.com/photo-1621984643811-ba0e5124a0cf", alt: "Coffee cherries on branch" },
+  { src: "https://images.unsplash.com/photo-1591982311839-a174e4c4b682", alt: "Coffee processing facility" },
+  { src: "https://images.unsplash.com/photo-1628336707631-68c1582b4c84", alt: "Coffee farm workers" },
 ];
 
 export const HeroSection = () => {
