@@ -18,7 +18,7 @@ const coffeeImages = [
 export const HeroSection = () => {
   return (
     <section 
-      className="h-[90vh] relative flex flex-col items-center justify-center overflow-hidden"
+      className="min-h-[90vh] relative flex flex-col items-center justify-center overflow-hidden"
       style={{
         backgroundImage: 'url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=3456&auto=format)',
         backgroundSize: 'cover',
@@ -35,7 +35,7 @@ export const HeroSection = () => {
       </div>
 
       <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 cursor-pointer"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10 cursor-pointer"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ 
