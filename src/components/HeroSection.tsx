@@ -2,7 +2,6 @@ import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import ImageCarousel from "./ImageCarousel";
 import { HeroContent } from "./hero/HeroContent";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 const coffeeImages = [
   { src: "/lovable-uploads/df3cfd9f-0fb9-4829-893e-764820a16105.png", alt: "Grano's Vertical Logo", isLogo: true },
@@ -17,11 +16,9 @@ const coffeeImages = [
 ];
 
 export const HeroSection = () => {
-  const isMobile = useIsMobile();
-  
   return (
     <section 
-      className="min-h-[90vh] relative flex flex-col items-center justify-center overflow-hidden"
+      className="h-[90vh] relative flex flex-col items-center justify-center overflow-hidden"
       style={{
         backgroundImage: 'url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=3456&auto=format)',
         backgroundSize: 'cover',
@@ -29,7 +26,7 @@ export const HeroSection = () => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className={`absolute inset-0 flex items-center justify-center bg-black/60 ${isMobile ? 'pt-16' : ''}`}>
+      <div className="absolute inset-0 flex items-center justify-center bg-black/60">
         <div className="relative w-full">
           <ImageCarousel images={coffeeImages}>
             <HeroContent />
@@ -38,7 +35,7 @@ export const HeroSection = () => {
       </div>
 
       <motion.div 
-        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10 cursor-pointer"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 cursor-pointer"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ 
