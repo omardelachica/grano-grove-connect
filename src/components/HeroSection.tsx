@@ -78,10 +78,8 @@ export const HeroSection = () => {
         }}
       />
       
-      <ImageCarousel images={coffeeImages} />
-
-      <div className="container px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
+      <ImageCarousel images={coffeeImages}>
+        <div className="max-w-3xl mx-auto text-center bg-black/40 backdrop-blur-sm p-8 rounded-xl">
           <img 
             src="/lovable-uploads/b8d7326a-7a29-47b6-85f3-e89e65e462dd.png" 
             alt="Grano Logo" 
@@ -147,7 +145,7 @@ export const HeroSection = () => {
             Join our community of coffee {isProducer ? 'producers' : 'enthusiasts'}, roasters, and connoisseurs.
           </p>
         </div>
-      </div>
+      </ImageCarousel>
 
       <motion.div 
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 cursor-pointer"

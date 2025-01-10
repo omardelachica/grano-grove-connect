@@ -1,10 +1,12 @@
 import ImageTile from "./ImageTile";
+import { ReactNode } from "react";
 
 interface ImageCarouselProps {
   images: Array<{ src: string; alt: string }>;
+  children?: ReactNode;
 }
 
-const ImageCarousel = ({ images }: ImageCarouselProps) => {
+const ImageCarousel = ({ images, children }: ImageCarouselProps) => {
   return (
     <div className="relative h-[700px] mb-16 overflow-hidden mx-auto w-full flex items-center justify-center">
       {images.map((image, index) => {
@@ -50,6 +52,9 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
           />
         );
       })}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
+        {children}
+      </div>
     </div>
   );
 };
