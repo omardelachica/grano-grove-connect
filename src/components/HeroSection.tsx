@@ -6,6 +6,19 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
 import { motion } from "framer-motion";
 import { Toggle } from "@/components/ui/toggle";
+import { ImageCarousel } from "./ImageCarousel";
+
+const coffeeImages = [
+  { src: "https://images.unsplash.com/photo-1447933601403-0c6688de566e", alt: "Coffee beans close-up" },
+  { src: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085", alt: "Coffee cup on wooden table" },
+  { src: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb", alt: "Latte art" },
+  { src: "https://images.unsplash.com/photo-1442512595331-e89e73853f31", alt: "Coffee plantation" },
+  { src: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd", alt: "Coffee roasting" },
+  { src: "https://images.unsplash.com/photo-1498804103079-a6351b050096", alt: "Coffee pouring" },
+  { src: "https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb", alt: "Coffee grinding" },
+  { src: "https://images.unsplash.com/photo-1521302080334-4bebac2763a6", alt: "Coffee shop" },
+  { src: "https://images.unsplash.com/photo-1459755486867-b55449bb39ff", alt: "Coffee preparation" },
+];
 
 export const HeroSection = () => {
   const [email, setEmail] = useState("");
@@ -54,7 +67,7 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="h-screen relative flex items-center justify-center overflow-hidden">
+    <section className="min-h-screen relative flex flex-col items-center justify-start overflow-hidden">
       <div 
         className="absolute inset-0 z-0 w-full h-full"
         style={{
@@ -65,6 +78,8 @@ export const HeroSection = () => {
         }}
       />
       
+      <ImageCarousel images={coffeeImages} />
+
       <div className="container px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <img 
