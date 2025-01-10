@@ -28,7 +28,7 @@ const ImageTile = ({ src, alt, className, rotation = 0, style, isLogo = false }:
         className="w-full h-full object-cover"
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-black/20 hover:bg-black/0 transition-colors duration-300 animate-float" />
+      <div className="absolute inset-0 bg-black/20 hover:bg-black/0 transition-colors duration-300" />
     </div>
   );
 };
